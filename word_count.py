@@ -3,7 +3,7 @@
 #TP1 word_count
 
 #variable chaine est egale au chaine au caractères qu'entre l"utilisateur
-chaine =(input("Écriver une chaine de caractères:"))
+chaine = (input("Écriver une chaine de caractères:"))
 
 #fonction count_word() qui recoit l'input de l'utilisateur calcule et retourne le nombre de mots dans le chaine de caracteres qu'a entre l'utilisateur
 def count_word(chaine):
