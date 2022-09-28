@@ -6,7 +6,7 @@ import random
 
 x= random.randint(0,100)
 nombre_essai = 0
-boucle_jeu = True
+boucle_jeu =True
 
 while boucle_jeu:
     print(x)
