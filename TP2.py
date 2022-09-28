@@ -22,11 +22,12 @@ elif essai > x:
 
 elif essai == x:
     print("Bravo! Bonne réponse!")
-    quit = (input("Voulez-vous faire une autre partie (o/n)?:"))
-    print(quit)
-    if quit == "y":
+    quitter = (input("Voulez-vous faire une autre partie (o/n)?:"))
+    print(quitter)
+    if quitter == "o":
         print("Merci et aurevoir...")
+        quit()
 
-    elif quit == "n":
+    elif quitter == "n":
         print("Merci et aurevoir...")
 
