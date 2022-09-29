@@ -1,5 +1,5 @@
 #Rozhina Mousavi
-#29 septembre 2022
+#28 septembre 2022
 #TP2 - jeu de devinettes
 
 import random
