@@ -5,7 +5,7 @@
 import random
 
 x = random.randint(0,100)
-nombre_essai = 1
+nombre_essai =1
 
 boucle_jeu =True
 def essais(nombre_essai):
