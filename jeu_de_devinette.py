@@ -9,7 +9,7 @@ nombre_essai = 1
 
 boucle_jeu =True
 def essais(nombre_essai):
-    return(nombre_essai += 1)
+    return(nombre_essai + 1)
 
 combien_essai = essais(nombre_essai)
 
