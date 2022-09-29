@@ -5,8 +5,14 @@
 import random
 
 x=  random.randint(0,100)
-nombre_essai=  0
+nombre_essai = 1
+
 boucle_jeu =True
+def essais(nombre_essai):
+    return(nombre_essai += 1)
+
+combien_essai = essais(nombre_essai)
+
 
 while boucle_jeu:
     print(x)
@@ -18,12 +24,18 @@ while boucle_jeu:
 
     if essai < x:
         print("x >", (int(essai)))
+        essais(nombre_essai)
+
 
     elif essai > x:
         print("x <", (int(essai)))
+        essais(nombre_essai)
 
     elif essai == x:
-        print("Bravo! Bonne réponse vous avez reuis!")
+        print("Bravo! Bonne réponse!")
+        essais(nombre_essai)
+
+        print("Vous avez réussi en " + str(combien_essai) + " essai(s)!")
         quitter = (input("Voulez-vous faire une autre partie (o/n)?:"))
         print(quitter)
         if quitter == "o":
