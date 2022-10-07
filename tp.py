@@ -1,7 +1,6 @@
 #Rozhina Mousavi
 #28 septembre 2022
 #TP2
-
 import random
 
 x= random.randint(0,100)
