@@ -1,7 +1,7 @@
 #Rozhina Mousavi
 #28 septembre 2022
 #TP2 - jeu de devinettes
-
+#boujours
 import random
 
 x = random.randint(0,100)
