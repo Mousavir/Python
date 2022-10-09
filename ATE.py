@@ -3,8 +3,6 @@
 #TP2 - jeu de devinettes
 import random
 
-
-
 nombres_essai =0
 
 
@@ -15,7 +13,8 @@ def essais():
 boucle_essais =True
 
 
-while boucle_essais:
+def jeu():
+
     borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
     borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
     x = random.randint(borne_minimal, borne_maximal)
@@ -23,6 +22,9 @@ while boucle_essais:
     print("""J'ai choisi un nombre au hasard entre 0 et 100. 
     À vous de deviner...""")
 
+while boucle_essais:
+    jeu()
+    global x
     essai = (int(input("Entrez votre essai:")))
     print(str(essai))
 
