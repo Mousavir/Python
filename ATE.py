@@ -1,6 +1,6 @@
 #Rozhina Mousavi
 #28 septembre 2022
-#TP2 - jeu de devinettes
+#TP2 - jeu de devinettes tests
 import random
 
 nombres_essai =0
