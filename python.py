@@ -1,6 +1,6 @@
 import random
 
-choisir = input("Vous voulez choisir propre nombre ou un borne définit")
+choisir = input(" Vous voulez choisir propre nombre ou un borne définit")
 
 if choisir == "choisir":
     borne_minimal= (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
