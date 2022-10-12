@@ -6,4 +6,4 @@ x = random.randint((borne_minimal, borne_maximal))
 
 print(borne_minimal)
 print(borne_minimal)
-print(x)
+print( x)
