@@ -10,4 +10,4 @@ if choisir == "choisir":
 elif choisir == "definit":
     x = random.randint(0,100)
 
-print( x)
+print(x)
