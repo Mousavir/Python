@@ -15,7 +15,7 @@ def essais():
 
 
 while boucle_jeu:
-    print(x)
+    print( x)
     print("""J'ai choisi un nombre au hasard entre 0 et 100. 
     À vous de deviner...""")
 

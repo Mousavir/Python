@@ -6,7 +6,7 @@ import random
 x= random.randint(0,100)
 nombre_essai = 0
 
-print(x)
+print( x)
 print("""J'ai choisi un nombre au hasard entre 0 et 100.
 À vous de deviner...""")
 
