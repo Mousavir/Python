@@ -11,24 +11,20 @@ def essais():
     nombres_essai += 1
     print(nombres_essai)
 
-
+quitter = "n"
 
 def jeu():
 
     boucle_jeu = True
-    def encore():
-        borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
-        borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
-        x = random.randint(borne_minimal, borne_maximal)
-        print( x)
-        return x
-        print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ". À vous de deviner...")
-    encore()
+    borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
+    borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
+    x = random.randint(borne_minimal, borne_maximal)
+    print(x)
+    print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ". À vous de deviner...")
 
     while boucle_jeu:
         essai = (int(input("Entrez votre essai:")))
         print(str(essai))
-        global x
         if essai < x:
             print("x >", (int(essai)))
             essais()
@@ -43,18 +39,11 @@ def jeu():
             essais()
 
             print("Vous avez réussi en " + str(nombres_essai) + " essai(s)!")
-            quitter = (input("Voulez-vous faire une autre partie (o/n)?:"))
-            print(quitter)
-            if quitter == "o":
-                encore()
-                boucle_jeu = True
+            boucle_jeu =False
 
 
 
-            elif quitter == "n":
-                print("Merci et aurevoir...")
-                encore()
-                boucle_jeu = False
-
-
-jeu()
+while quitter == "n":
+    print(quitter)
+    jeu()
+    quitter = input("Voulez vous quitter (o/n)")
