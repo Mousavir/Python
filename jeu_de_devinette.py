@@ -47,3 +47,5 @@ while quitter == "n":
     print(quitter)
     jeu()
     quitter = input("Voulez vous quitter (o/n)")
+    if quitter == "o":
+        print("Merci et aurevoir!")
