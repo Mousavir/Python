@@ -14,7 +14,7 @@ def essais():
 
 
 def jeu():
-    boucle_essais = True
+
     boucle_jeu = True
     def encore():
         borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
