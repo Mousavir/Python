@@ -8,33 +8,34 @@ def essais():
     global nombres_essai
     nombres_essai += 1
 
-quitter = "n"
+autre_partie = "o"
 
-def choisis_bornes():
-
+def jeu():
     choisis = (input("Voulez vous choisir votre propre borne pour le nombre ou préférer vous l'option par défaut (0-100)? Répondez choisis ou defaut:"))
+    def choisis_bornes(choisis):
+        if choisis == "choisis":
+            borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
+            borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
 
-    if choisis == "choisis":
-        borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
-        borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
+            x = random.randint(borne_minimal, borne_maximal)
+            print(x)
+            print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ".\nÀ vous de deviner...")
 
-        x = random.randint(borne_minimal, borne_maximal)
-        print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ".\nÀ vous de deviner...")
-
-    elif choisis == "defaut":
-        x = random.randint(0, 100)
-        print("J'ai choisi un nombre au hasard entre 0 et 100\nÀ vous de deviner...")
-
+        elif choisis == "defaut":
+            x = random.randint(0, 100)
+            print(x)
+            print("J'ai choisi un nombre au hasard entre 0 et 100\nÀ vous de deviner...")
+    choisis_bornes(choisis)
     boucle_jeu = True
     while boucle_jeu:
         essai = (int(input("Entrez votre essai:")))
         if essai < x:
-            print("x >", (int(essai)))
+            print("Mauvaise reponse, le nombre est plus grand que (x >)", (int(essai)))
             essais()
 
 
         elif essai > x:
-            print("x <", (int(essai)))
+            print("Mauvais choix, le nombre est plus petit que (x <)", (int(essai)))
             essais()
 
         elif essai == x:
@@ -46,9 +47,9 @@ def choisis_bornes():
 
 
 
-while quitter == "n":
+while autre_partie == "o":
     nombres_essai = 0
-    choisis_bornes()
-    quitter = input("Voulez vous quitter (o/n)")
-    if quitter == "o":
+    jeu()
+    autre_partie = input("Voulez voulez faire une autre partie (o/n)")
+    if autre_partie == "n":
         print("Merci et aurevoir!")

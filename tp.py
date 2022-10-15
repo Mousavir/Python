@@ -1,31 +1,54 @@
 #Rozhina Mousavi
 #28 septembre 2022
-#TP2
+#TP2 - jeu de devinettes tests
 import random
 
-x= random.randint(0,100)
-nombre_essai = 0
 
-print( x)
-print("""J'ai choisi un nombre au hasard entre 0 et 100.
-À vous de deviner...""")
+def essais():
+    global nombres_essai
+    nombres_essai += 1
 
-essai = (int(input("Entrez votre essai:")))
-print(str(essai))
+autre_partie = "o"
 
-if essai < x:
-   print("x >", (int(essai)))
+def jeu():
+    choisis = (input("Voulez vous choisir votre propre borne pour le nombre ou préférer vous l'option par défaut (0-100)? Répondez choisis ou defaut:"))
+    if choisis == "choisis":
+            borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
+            borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
 
-elif essai > x:
-   print("x <", (int(essai)))
+            x = random.randint(borne_minimal, borne_maximal)
+            print(x)
+            print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ".\nÀ vous de deviner...")
 
-elif essai == x:
-   print("Bravo! Bonne réponse!")
-   quitter = (input("Voulez-vous faire une autre partie (o/n)?:"))
-   print(quitter)
-   if quitter == "o":
-       print("Merci et aurevoir...")
-       quit()
+    elif choisis == "defaut":
+        x = random.randint(0, 100)
+        print(x)
+        print("J'ai choisi un nombre au hasard entre 0 et 100\nÀ vous de deviner...")
 
-   elif quitter == "n":
-       print("Merci et aurevoir...")
+    boucle_jeu = True
+    while boucle_jeu:
+        essai = (int(input("Entrez votre essai:")))
+        if essai < x:
+            print("Mauvaise reponse, le nombre est plus grand que (x >)", (int(essai)))
+            essais()
+
+
+        elif essai > x:
+            print("Mauvais choix, le nombre est plus petit que (x <)", (int(essai)))
+            essais()
+
+        elif essai == x:
+            print("Bravo! Bonne réponse!")
+            essais()
+
+            print("Vous avez réussi en " + str(nombres_essai) + " essai(s)!")
+            boucle_jeu =False
+
+
+
+while autre_partie == "o":
+    nombres_essai = 0
+    jeu()
+    autre_partie = input("Voulez voulez faire une autre partie (o/n)")
+    if autre_partie == "n":
+        print("Merci et aurevoir!")
