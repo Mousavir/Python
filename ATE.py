@@ -12,15 +12,13 @@ def essais():
     print(nombres_essai)
 
 quitter = "n"
-
+boucle_jeu = True
 def jeu():
-
-    boucle_jeu = True
     borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
     borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
     x = random.randint(borne_minimal, borne_maximal)
     print(x)
-    print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ". À vous de deviner...")
+    print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ".\n À vous de deviner...")
 
     while boucle_jeu:
         essai = (int(input("Entrez votre essai:")))
@@ -48,4 +46,3 @@ while quitter == "n":
     quitter = input("Voulez vous quitter (o/n)")
     if quitter == "o":
         print("Merci et aurevoir!")
-
