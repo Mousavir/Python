@@ -16,4 +16,4 @@ def choisis_bornes(choisis):
     elif choisis == "defaut":
         x = random.randint(0, 100)
 
-choisis_bornes(choisis)
+choisis_bornes( choisis)

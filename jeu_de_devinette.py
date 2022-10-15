@@ -12,7 +12,7 @@ def essais():
     print(nombres_essai)
 
 quitter = "n"
-choisis = (input("Voulez vous choisir votre propre borne pour le nombre ou préférer vous l'option par défaut (0-100)? Répondez choisis ou defaut:"))
+choisis = (input(" Voulez vous choisir votre propre borne pour le nombre ou préférer vous l'option par défaut (0-100)? Répondez choisis ou defaut:"))
 
 def choisis_bornes(choisis):
 

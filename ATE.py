@@ -18,7 +18,7 @@ def jeu():
     borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
     x = random.randint(borne_minimal, borne_maximal)
     print(x)
-    print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ".\n À vous de deviner...")
+    print(" J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ".\n À vous de deviner...")
 
     while boucle_jeu:
         essai = (int(input("Entrez votre essai:")))
