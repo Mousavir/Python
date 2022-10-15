@@ -25,9 +25,10 @@ def jeu():
             x = random.randint(0, 100)
             print(x)
             print("J'ai choisi un nombre au hasard entre 0 et 100\nÀ vous de deviner...")
-    choisis_bornes(choisis)
     boucle_jeu = True
     while boucle_jeu:
+        choisis_bornes(choisis)
+        global x
         essai = (int(input("Entrez votre essai:")))
         if essai < x:
             print("Mauvaise reponse, le nombre est plus grand que (x >)", (int(essai)))
