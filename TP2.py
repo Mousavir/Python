@@ -2,10 +2,9 @@
 #28 septembre 2022
 #TP2 - jeu de devinettes
 
-#fait appele à la bibliotheque random
 import random
 
-#fonction essais ou le variable nombres_essais est egale a plu 1 chaque fois que cette fonction est appele
+#fonction essais ou le variable nombres_essais est egale a plus 1 chaque fois que cette fonction est appele
 def essais():
     global nombres_essai #la variable nombres_essais est global
     nombres_essai += 1
@@ -13,7 +12,9 @@ def essais():
 #variable autre_partie est egale a o
 autre_partie = "o"
 
-#fonction jeu() pour choisir les bornes et jouer le jeu
+#fonction jeu() pour choisir les bornes: ou l'utilisateur choisit s'il veut choisir lui même les bornes pour le nombre aléatoire (option choisis) ou choisit d'utiliser les bornes presentes par defaut (option defaut)
+#fonction jeu() pour jouer le jeu: contient le boucle while boucle_jeu dans la fonction qui contient la partie ou l'utilisateur entre un nombre en essai et si son nombre et plus petit ou plus grand que ceci en question (nb au hasard entre bornes (defaut ou choisir) et recoit un message a l'ecran indiquant ceci, sinon si l'essai est bonne affiche message bravo et le nb d'essai pris
+#fonction jeu() qui est repete autant de fois selon si l'utilisateur veut jouer un autre jeu dans le boucle while autre_partie = "o".
 def jeu():
     #variable choisis est egale a la reponse entre par l'utilisateur soit choisis ou defaut
     choisis = (input("Voulez vous choisir votre propre borne pour le nombre ou préférer vous l'option par défaut (0-100)? Répondez choisis ou defaut:"))
@@ -23,23 +24,19 @@ def jeu():
             borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
             borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
 
-            #variable x est eagle a un nombre au hasard entre le borne définit par l'utilisateur
-            x =random.randint(borne_minimal, borne_maximal)
-
-            #affiche a l'ecran le texte suivant indiquant la borne minimal et maximal entre par l'utilisateur
-            print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str(borne_maximal) + ".\nÀ vous de deviner...")
-
-
-    #si le variable choisis est egale a defaut-entre par l'utilisateur- l'orinateur genere un nombre au hasard entre 0 et 100 comme la valeur de x (variable)
+    #si le variable choisis est egale a defaut-entre par l'utilisateur- les bornes minimales et baximales (0 et 100 respectivement) predefinit egalent aux variables dans lequel leur valeur est stocke
     elif choisis == "defaut":
-        x = random.randint(0, 100)
-        #affiche a l'ecrann la phrase suivante en indiquant la borne par defaut
-        print("J'ai choisi un nombre au hasard entre 0 et 100\nÀ vous de deviner...")
+        borne_minimal= 0
+        borne_maximal = 100
 
+    #variable x est égale a un nombre alleatoire entre le borne minimal et maximal et cela depend de ci l'utilisateur decide de choisir les bornes ou ceux definit par defaut - definit par utilisateur ou definit par defaut
+    x = random.randint(borne_minimal, borne_maximal)
+    # affiche a l'ecran le texte suivant indiquant la borne minimal et maximal soit celuidéfinit par l'utilisateur ou celui par defaut dependant de l'option choisie ou defaut que l'utlisateur a pris
+    print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str( borne_maximal) + ".\nÀ vous de deviner...")
     #boucle de jeu est vraie
     boucle_jeu = True
 
-    #boucle qui roule tant que la valeur de=u variable boucle jeu est vrai
+    #boucle qui roule tant que la valeur du variable boucle jeu est vrai (True)
     while boucle_jeu:
         #l'utilisateur entre son essai et ceci est stocke dans une variable essai
         essai = (int(input("Entrez votre essai:")))
@@ -47,6 +44,7 @@ def jeu():
         #si l'essai de l'utilisateur (nb) est plus petit que le nombre x en question affiche a l'ecran le texte disant que x est plus grand que l'essai de l'utilisateur
         if essai < x:
             print("Mauvaise reponse, le nombre est plus grand que (x >)", (int(essai)))
+
             essais() #appel au fonction essais
 
         #si l'essai de l'utilisateur (nb) est plus grand que le nombre x en question et que if est faux affiche a l'ecran le texte disant que x est plus petit que l'essai de l'utilisateur
@@ -67,7 +65,7 @@ def jeu():
 #boucle autre_partie qui se repete tant que cette derniere variable est egale a o
 while autre_partie == "o":
     nombres_essai = 0 #variable nombres_essais est egale a 0
-    jeu() #appel au fonction jeu() et donc a tout son contenu
+    jeu() #appel au fonction jeu() et donc a tout son contenu (partie choisir ou defaut des bornes et la partie du jeu (deviner valeur de x + nb essai pris)
     autre_partie = input("Voulez voulez faire une autre partie (o/n)") #variable est egale au reponse uq'en l'utilisateur pour jouer encore
 
     #si le reponse que l'utilisateur entre, qui est stocke dans la variable est egale a n affiche message de politesse et d'aurevoir
