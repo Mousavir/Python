@@ -20,6 +20,7 @@ print(quoi_faire)
 if  quoi_faire == "1":
     lance_dé = random.randint(1,6)
     if lance_dé <= force_adversaire:
+        print("ok")
 
 
 elif quoi_faire == "2":
