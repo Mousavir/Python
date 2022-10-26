@@ -1,8 +1,15 @@
 
-numero_adversaire = 5
+jouer = "o"
+def nouveau_niveau_vie():
+    global niveau_vie
+    niveau_vie = 20
+    niveau_vie -= 1
+    print(niveau_vie)
+nouveau_niveau_vie()
 
-def statut_partie():
-    print("Adversaire:" + str(numero_adversaire) + "\n bonjour")
+
+def jeu():
+    print("Niveau de vie mise a jour:" +str(niveau_vie))
 
 
-statut_partie()
+
