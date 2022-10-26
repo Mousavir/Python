@@ -32,7 +32,7 @@ def jeu():
     #variable x est égale a un nombre alleatoire entre le borne minimal et maximal et cela depend de ci l'utilisateur decide de choisir les bornes ou ceux definit par defaut - definit par utilisateur ou definit par defaut
     x = random.randint(borne_minimal, borne_maximal)
     # affiche a l'ecran le texte suivant indiquant la borne minimal et maximal soit celuidéfinit par l'utilisateur ou celui par defaut dependant de l'option choisie ou defaut que l'utlisateur a pris
-    print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str( borne_maximal) + ".\nÀ vous de deviner...")
+    print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str( borne_maximal) +". \n À vous de deviner...")
     #boucle de jeu est vraie
     boucle_jeu = True
 
