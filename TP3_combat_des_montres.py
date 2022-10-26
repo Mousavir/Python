@@ -21,36 +21,44 @@ def instructions():
             L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie. """)
 def jeu():
 
-    print("Voux tombez face à face avec un adversaire de difficulté:" + str(force_adversaire))
+    print("Vous tombez face à face avec un adversaire de difficulté:" + str(force_adversaire))
 
-    quoi_faire = input("""Que voulez-vous faire? 
+    quoi_faire = ("""Que voulez-vous faire? 
     1- Combattre cet adversaire
     2- Contourner cet adversaire et aller ouvrir un autre porte
     3- Afficher les règles du jeu
     4- Quitter la partie
-    *Entrer le numero de l'option choisis*
-    Décision:""")
+    *Entrer le numero de l'option choisis*""")
 
     print(quoi_faire)
 
     boucle_jeu = True
     while boucle_jeu:
+        decision = (input("Entrez votre decision:"))
+        if  decision == "1":
+            score_dé = random.randint(1,6)
+            print("Lancé du dé:" + str(score_dé))
+            if score_dé <= force_adversaire:
+                combat_statut = "victoire"
 
-        if  quoi_faire == "1":
-            lance_dé = random.randint(1,6)
-            if lance_dé <= force_adversaire:
-                print("ok")
+            elif score_dé >= force_adversaire:
+                combat_statut = "defaite"
+            print("Dernier combat =" + str(combat_statut))
 
 
-        elif quoi_faire == "2":
+        elif decision == "2":
             nouveau_niveau_vie()
             print("Niveau de vie mise a jour:" +str(niveau_vie))
 
-        elif quoi_faire == "3":
+        elif decision == "3":
             instructions()
 
-        elif quoi_faire == "4":
+        elif decision == "4":
             print("Merci et aurevoir!")
             boucle_jeu = False
 
-jeu()
+
+while autre_partie == "o":
+    jeu()
+    autre_partie = input("Voulez voulez faire une autre partie (o/n)")
+
