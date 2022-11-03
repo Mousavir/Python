@@ -68,3 +68,8 @@ while autre_partie == "o":
     jeu()
     autre_partie = input("Voulez voulez faire une autre partie (o/n)")
 
+______________________
+
+def numero_combat():
+    global numero_combat
+    numero_combat += 1

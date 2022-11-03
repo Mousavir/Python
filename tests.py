@@ -20,6 +20,7 @@ def statut_partie():
     print("Force de l'adversaire: " + str(force_adversaire))
     print("Niveau de vie de l'usager: " +str(niveau_vie))
     print("Combat " + str(numero_combat) + ": "+ str(nombres_de_victoires) + " victoires vs " +str(nombres_de_defaites) + " defaites")
+
 if decision == "1":
     statut_partie()
     score_dé = random.randint(1, 6)
