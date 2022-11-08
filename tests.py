@@ -51,5 +51,3 @@ if decision == "1":
 
 
 
-    elif score_dé > force_adversaire:
-        niveau_vie += int(force_adversaire)
