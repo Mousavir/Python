@@ -6,7 +6,8 @@ import random
 
 #fonction essais ou le variable nombres_essais est egale a plus 1 à chaque apelle de cette fonction
 def essais():
-    global nombres_essai #la variable nombres_essais est global
+    # la variable nombres_essais est global
+    global nombres_essai
     nombres_essai += 1
 
 #variable autre_partie est egale a o
