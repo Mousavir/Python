@@ -44,29 +44,35 @@ def jeu():
         #si l'essai de l'utilisateur (nb) est plus petit que le nombre x en question affiche a l'ecran le texte disant que x est plus grand que l'essai de l'utilisateur
         if essai < x:
             print("Mauvaise reponse, le nombre est plus grand que (x >)", (int(essai)))
-
-            essais() #appel au fonction essais
+            # appel au fonction essais
+            essais()
 
         #si l'essai de l'utilisateur (nb) est plus grand que le nombre x en question et que if est faux affiche a l'ecran le texte disant que x est plus petit que l'essai de l'utilisateur
         elif essai > x:
             print("Mauvais choix, le nombre est plus petit que (x <)", (int(essai)))
-            essais() #appel au fonction essais
+            #appel au fonction essais
+            essais()
 
         #si l'essai de l'utilisateur (nb) est egale a la valeur de x choisis au hasard entre certains bornes dependament affiche a l'ecran message felicitation
         elif essai == x:
             print("Bravo! Bonne réponse!")
-            essais() #appel au fonction essais
+            # appel au fonction essais
+            essais()
 
             #affiche a l'ecran message que l'utilisateur a reussis en tel nb d'essai grace au fonction essais()
             print("Vous avez réussi en " + str(nombres_essai) + " essai(s)!")
-            boucle_jeu =False #variable boucle jeu est faux, n'est plus vrai est le boucle while dans la fonction jeu() se termine
+            # variable boucle jeu est faux, n'est plus vrai est le boucle while dans la fonction jeu() se termine
+            boucle_jeu =False
 
 
 #boucle autre_partie qui se repete tant que cette derniere variable est egale a o
 while autre_partie == "o":
-    nombres_essai = 0 #variable nombres_essais est egale a 0
-    jeu() #appel au fonction jeu() et donc a tout son contenu (partie choisir ou defaut des bornes et la partie du jeu (deviner valeur de x + nb essai pris)
-    autre_partie = input("Voulez voulez faire une autre partie (o/n)") #variable est egale au reponse uq'en l'utilisateur pour jouer encore
+    # variable nombres_essais est egale a 0
+    nombres_essai = 0
+    # appel au fonction jeu() et donc a tout son contenu (partie choisir ou defaut des bornes et la partie du jeu (deviner valeur de x + nb essai pris)
+    jeu()
+    # variable est egale au reponse uq'en l'utilisateur pour jouer encore
+    autre_partie = input("Voulez voulez faire une autre partie (o/n)")
 
     #si le reponse que l'utilisateur entre est egale a n affiche message de politesse et d'aurevoir
     if autre_partie == "n":
