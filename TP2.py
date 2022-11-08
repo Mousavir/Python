@@ -4,7 +4,7 @@
 
 import random
 
-#fonction essais ou le variable nombres_essais est egale a plus 1 chaque fois que cette fonction est appele
+#fonction essais ou le variable nombres_essais est egale a plus 1 à chaque apelle de cette fonction
 def essais():
     global nombres_essai #la variable nombres_essais est global
     nombres_essai += 1
@@ -12,33 +12,33 @@ def essais():
 #variable autre_partie est egale a o
 autre_partie = "o"
 
-#fonction jeu() pour choisir les bornes: ou l'utilisateur choisit s'il veut choisir lui même les bornes pour le nombre aléatoire (option choisis) ou choisit d'utiliser les bornes presentes par defaut (option defaut)
-#fonction jeu() pour jouer le jeu: contient le boucle while boucle_jeu dans la fonction qui contient la partie ou l'utilisateur entre un nombre en essai et si son nombre et plus petit ou plus grand que ceci en question (nb au hasard entre bornes (defaut ou choisir) et recoit un message a l'ecran indiquant ceci, sinon si l'essai est bonne affiche message bravo et le nb d'essai pris
-#fonction jeu() qui est repete autant de fois selon si l'utilisateur veut jouer un autre jeu dans le boucle while autre_partie = "o".
+#fonction jeu() pour choisir les bornes: l'utilisateur choisit s'il veut choisir lui même les bornes du nombre aléatoire (option choisis) ou choisit d"utilier les bornes defaut (option defaut)
+#fonction jeu() pour jouer le jeu: contient le boucle while boucle_jeu: partie ou l'utilisateur entre un nombre en essaie, si son nombre = plus petit ou plus grand que celui en question, affichage à l'écran qui indiquant ceci, sinon si l'essai= nombre, affiche message bravo et le nb d'essai pris
+#fonction jeu() est repete autant de fois selon si l'utilisateur veut jouer un autre jeu dans le boucle while autre_partie = "o".
 def jeu():
     #variable choisis est egale a la reponse entre par l'utilisateur soit choisis ou defaut
     choisis = (input("Voulez vous choisir votre propre borne pour le nombre ou préférer vous l'option par défaut (0-100)? Répondez choisis ou defaut:"))
 
-    #si le variable choisis est egale a choisis -entre par l'utilisateur- l'utilisateur peut choisir une nombre pour borne minimal et maximal et ceci est stocké dans des variable
+    #si le variable choisis est egale a choisis -entre par l'utilisateur- l'utilisateur peut choisir une nombre pour borne minimal et maximal
     if choisis == "choisis":
             borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
             borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
 
-    #si le variable choisis est egale a defaut-entre par l'utilisateur- les bornes minimales et baximales (0 et 100 respectivement) predefinit egalent aux variables dans lequel leur valeur est stocke
+    #si le variable choisis est egale a defaut-entre par l'utilisateur- les bornes minimales et baximales (0 et 100 respectivement) predefinit egalent aux variables respectifs
     elif choisis == "defaut":
         borne_minimal= 0
         borne_maximal = 100
 
-    #variable x est égale a un nombre alleatoire entre le borne minimal et maximal et cela depend de ci l'utilisateur decide de choisir les bornes ou ceux definit par defaut - definit par utilisateur ou definit par defaut
+    #variable x est égale a un nombre alleatoire entre le borne minimal et maximal et cela depend de ci l'utilisateur decide de choisir les bornes ou ceux definit par defaut
     x = random.randint(borne_minimal, borne_maximal)
-    # affiche a l'ecran le texte suivant indiquant la borne minimal et maximal soit celuidéfinit par l'utilisateur ou celui par defaut dependant de l'option choisie ou defaut que l'utlisateur a pris
+    # affiche a l'ecran le texte suivant indiquant la borne minimal et maximal soit celui définit par l'utilisateur ou celui par defaut dependant de l'option choisie ou defaut pris
     print("J'ai choisi un nombre au hasard entre " + str(borne_minimal) + " et " + str( borne_maximal) +". \n À vous de deviner...")
     #boucle de jeu est vraie
     boucle_jeu = True
 
     #boucle qui roule tant que la valeur du variable boucle jeu est vrai (True)
     while boucle_jeu:
-        #l'utilisateur entre son essai et ceci est stocke dans une variable essai
+        #l'utilisateur entre son essai
         essai = (int(input("Entrez votre essai:")))
 
         #si l'essai de l'utilisateur (nb) est plus petit que le nombre x en question affiche a l'ecran le texte disant que x est plus grand que l'essai de l'utilisateur
@@ -68,6 +68,6 @@ while autre_partie == "o":
     jeu() #appel au fonction jeu() et donc a tout son contenu (partie choisir ou defaut des bornes et la partie du jeu (deviner valeur de x + nb essai pris)
     autre_partie = input("Voulez voulez faire une autre partie (o/n)") #variable est egale au reponse uq'en l'utilisateur pour jouer encore
 
-    #si le reponse que l'utilisateur entre, qui est stocke dans la variable est egale a n affiche message de politesse et d'aurevoir
+    #si le reponse que l'utilisateur entre est egale a n affiche message de politesse et d'aurevoir
     if autre_partie == "n":
         print("Merci et aurevoir!")
