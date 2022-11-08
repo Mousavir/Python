@@ -1,15 +1,17 @@
 import random
-
+niveau_vie = 20
 
 force_adversaire = random.randint(1, 5)
 autre_partie = "o"
 
 def nouveau_niveau_vie():
     global niveau_vie
-    niveau_vie = 20
     niveau_vie -= 1
     print(niveau_vie)
 
+def new_niveau_vie():
+    global niveau_vie
+    niveau_vie += int(force_adversaire)
 
 
 
@@ -38,11 +40,15 @@ def jeu():
         if  decision == "1":
             score_dé = random.randint(1,6)
             print("Lancé du dé:" + str(score_dé))
-            if score_dé <= force_adversaire:
+            if score_dé >= force_adversaire:
                 combat_statut = "victoire"
+                nouveau_niveau_vie()
+                print("Niveau de vie" + str(niveau_vie))
 
-            elif score_dé >= force_adversaire:
+
+            elif score_dé <= force_adversaire:
                 combat_statut = "defaite"
+
             print("Dernier combat =" + str(combat_statut))
 
 
@@ -62,3 +68,8 @@ while autre_partie == "o":
     jeu()
     autre_partie = input("Voulez voulez faire une autre partie (o/n)")
 
+______________________
+
+def numero_combat():
+    global numero_combat
+    numero_combat += 1
