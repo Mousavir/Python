@@ -13,6 +13,7 @@ def combat():
 
 def nb_victoires_consécutifs():
     nombres_de_victoire
+
 def new_niveau_vie():
     global niveau_vie
     niveau_vie += int(force_adversaire)
@@ -49,3 +50,6 @@ if decision == "1":
     print("Niveau de vie = " + str(niveau_vie))
 
 
+
+    elif score_dé > force_adversaire:
+        niveau_vie += int(force_adversaire)
