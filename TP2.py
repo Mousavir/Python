@@ -6,11 +6,11 @@ import random
 
 #fonction essais ou le variable nombres_essais est egale a plus 1 à chaque apelle de cette fonction
 def essais():
-    # la variable nombres_essais est global
+    #la variable nombres_essais est global
     global nombres_essai
     nombres_essai += 1
 
-#variable autre_partie est egale a o
+# variable autre_partie est egale a o
 autre_partie = "o"
 
 #fonction jeu() pour choisir les bornes: l'utilisateur choisit s'il veut choisir lui même les bornes du nombre aléatoire (option choisis) ou choisit d"utilier les bornes defaut (option defaut)
@@ -20,12 +20,12 @@ def jeu():
     #variable choisis est egale a la reponse entre par l'utilisateur soit choisis ou defaut
     choisis = (input("Voulez vous choisir votre propre borne pour le nombre ou préférer vous l'option par défaut (0-100)? Répondez choisis ou defaut:"))
 
-    #si le variable choisis est egale a choisis -entre par l'utilisateur- l'utilisateur peut choisir une nombre pour borne minimal et maximal
+    # si le variable choisis est egale a choisis -entre par l'utilisateur- l'utilisateur peut choisir une nombre pour borne minimal et maximal
     if choisis == "choisis":
             borne_minimal = (int(input("Choisissez le nombre minimal pour la borne de nombre aléatoire:")))
             borne_maximal = (int(input("Choisissez le nombre maximal pour la borne de nombre aléatoire:")))
 
-    #si le variable choisis est egale a defaut-entre par l'utilisateur- les bornes minimales et baximales (0 et 100 respectivement) predefinit egalent aux variables respectifs
+    # si le variable choisis est egale a defaut-entre par l'utilisateur- les bornes minimales et baximales (0 et 100 respectivement) predefinit egalent aux variables respectifs
     elif choisis == "defaut":
         borne_minimal= 0
         borne_maximal = 100
