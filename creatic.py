@@ -98,7 +98,7 @@ def jeu():
             print("Merci et aurevoir!")
             boucle_jeu = False
         if niveau_vie <= 0:
-            print("La partie est terminée, vous avez vaincu monstre(s)")
+            print("La partie est terminée, vous avez vaincu " + str(nombres_de_victoires) +" monstre(s)")
 
 while autre_partie == "o":
     jeu()
