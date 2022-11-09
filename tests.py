@@ -51,3 +51,16 @@ if decision == "1":
 
 
 
+
+numero_adversaire = random.randint(0, 100)
+    print("Vous tombez face à face avec un adversaire de difficulté:" + str(force_adversaire))
+
+    quoi_faire = ("""Que voulez-vous faire? 
+    1- Combattre cet adversaire
+    2- Contourner cet adversaire et aller ouvrir un autre porte
+    3- Afficher les règles du jeu
+    4- Quitter la partie
+    *Entrer le numero de l'option choisis*""")
+
+    print(quoi_faire)
+
