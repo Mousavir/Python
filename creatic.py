@@ -99,7 +99,7 @@ def jeu():
             boucle_jeu = False
         if niveau_vie <= 0:
             print("La partie est terminée, vous avez vaincu " + str(nombres_de_victoires) +" monstre(s)")
-
+            boucle_jeu = False
 while autre_partie == "o":
     jeu()
     autre_partie = input("Voulez voulez faire une autre partie (o/n)")
