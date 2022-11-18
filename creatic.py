@@ -14,7 +14,7 @@ def gange_perdu():
     if combat_statut == "victoire":
         nombres_de_victoires +=1
     elif combat_statut=="defaite":
-        nombres_de_defaites +=1
+        nombres_de_victoires=0
 
 def combat():
     global numero_combat
@@ -38,8 +38,8 @@ def nouveau_niveau_vie():
 
         niveau_vie += int(force_adversaire)
 
-def nb_victoires_consécutifs():
-    global nombres_de_victoires
+
+
 
 def instructions():
     print("""Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire. 
@@ -84,8 +84,8 @@ def jeu():
             print("Lancé du dé:" + str(score_dé))
             nouveau_niveau_vie()
             gange_perdu()
-            print("Dernier combat = " + str(combat_statut))
-            print("Niveau de vie = " + str(niveau_vie))
+            print("Dernier combat = " + str(combat_statut) + "\nNiveau de vie = " + str(niveau_vie) + "\nNombre de victoires consécutives =" +str(nombres_de_victoires))
+            print()
 
         elif decision == "2":
             contourner_monstre()
