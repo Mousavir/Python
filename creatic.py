@@ -1,3 +1,4 @@
+
 import random
 
 niveau_vie = 20
@@ -38,7 +39,9 @@ def nouveau_niveau_vie():
 
         niveau_vie += int(force_adversaire)
 
-
+def augmentation():
+    if nombres_de_victoires >=2:
+        force_adversaire(3,5)
 
 
 def instructions():
@@ -78,9 +81,9 @@ def jeu():
         global numero_adversaire
         numero_adversaire = random.randint(0, 100)
         decision = (input("Entrez votre decision:"))
+        augmentation()
         if decision == "1":
-            combat()
-            statut_partie()
+            print(str(force_adversaire))
             print("Lancé du dé:" + str(score_dé))
             nouveau_niveau_vie()
             gange_perdu()

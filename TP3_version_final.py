@@ -3,22 +3,23 @@ import random
 niveau_vie = 20
 numero_combat = 0
 autre_partie = "o"
-nombres_de_victoires=0
-nombres_de_defaites=0
-
+nombres_de_victoires = 0
+nombres_de_defaites = 0
 
 
 def gange_perdu():
     global nombres_de_victoires
     global nombres_de_defaites
     if combat_statut == "victoire":
-        nombres_de_victoires +=1
-    elif combat_statut=="defaite":
-        nombres_de_victoires=0
+        nombres_de_victoires += 1
+    elif combat_statut == "defaite":
+        nombres_de_victoires = 0
+
 
 def combat():
     global numero_combat
     numero_combat += 1
+
 
 def contourner_monstre():
     global niveau_vie
@@ -39,8 +40,6 @@ def nouveau_niveau_vie():
         niveau_vie += int(force_adversaire)
 
 
-
-
 def instructions():
     print("""Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire. 
 Dans ce cas, le niveau de vie de l’usager est augmenté de la force de l’adversaire.
@@ -51,11 +50,14 @@ La partie se termine lorsque les points de vie de l’usager tombent sous 0.
 
 L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie. """)
 
+
 def statut_partie():
     print("Adversaire: " + str(numero_adversaire))
     print("Force de l'adversaire: " + str(force_adversaire))
     print("Niveau de vie de l'usager: " + str(niveau_vie))
-    print("Combat " + str(numero_combat) + ": " + str(nombres_de_victoires) + " victoires vs " + str(nombres_de_defaites) + " defaites")
+    print("Combat " + str(numero_combat) + ": " + str(nombres_de_victoires) + " victoires vs " + str(
+        nombres_de_defaites) + " defaites")
+
 
 def jeu():
     print("Vous tombez face à face avec un adversaire de difficulté:")
@@ -84,12 +86,13 @@ def jeu():
             print("Lancé du dé:" + str(score_dé))
             nouveau_niveau_vie()
             gange_perdu()
-            print("Dernier combat = " + str(combat_statut) + "\nNiveau de vie = " + str(niveau_vie) + "\nNombre de victoires consécutives =" +str(nombres_de_victoires))
+            print("Dernier combat = " + str(combat_statut) + "\nNiveau de vie = " + str(
+                niveau_vie) + "\nNombre de victoires consécutives =" + str(nombres_de_victoires))
             print()
 
         elif decision == "2":
             contourner_monstre()
-            print("Niveau de vie mise a jour:" +str(niveau_vie))
+            print("Niveau de vie mise a jour:" + str(niveau_vie))
 
         elif decision == "3":
             instructions()
@@ -98,8 +101,10 @@ def jeu():
             print("Merci et aurevoir!")
             boucle_jeu = False
         if niveau_vie <= 0:
-            print("La partie est terminée, vous avez vaincu " + str(nombres_de_victoires) +" monstre(s)")
+            print("La partie est terminée, vous avez vaincu " + str(nombres_de_victoires) + " monstre(s)")
             boucle_jeu = False
+
+
 while autre_partie == "o":
     jeu()
     autre_partie = input("Voulez voulez faire une autre partie (o/n)")
