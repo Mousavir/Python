@@ -1,4 +1,3 @@
-
 import random
 
 niveau_vie = 20
@@ -6,7 +5,8 @@ numero_combat = 0
 autre_partie = "o"
 nombres_de_victoires=0
 nombres_de_defaites=0
-
+minimum = 1
+maximum = 5
 
 
 def gange_perdu():
@@ -39,9 +39,6 @@ def nouveau_niveau_vie():
 
         niveau_vie += int(force_adversaire)
 
-def augmentation():
-    if nombres_de_victoires >=2:
-        force_adversaire(3,5)
 
 
 def instructions():
@@ -83,7 +80,7 @@ def jeu():
         decision = (input("Entrez votre decision:"))
         augmentation()
         if decision == "1":
-            print(str(force_adversaire))
+            statut_partie()
             print("Lancé du dé:" + str(score_dé))
             nouveau_niveau_vie()
             gange_perdu()
@@ -104,5 +101,6 @@ def jeu():
             print("La partie est terminée, vous avez vaincu " + str(nombres_de_victoires) +" monstre(s)")
             boucle_jeu = False
 while autre_partie == "o":
+
     jeu()
     autre_partie = input("Voulez voulez faire une autre partie (o/n)")
