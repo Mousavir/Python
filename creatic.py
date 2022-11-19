@@ -58,7 +58,7 @@ def statut_partie():
     print("Combat " + str(numero_combat) + ": " + str(nombres_de_victoires) + " victoires vs " + str(nombres_de_defaites) + " defaites")
 
 def jeu():
-    print("Vous tombez face à face avec un adversaire de difficulté:")
+    print(" Vous tombez face à face avec un adversaire de difficulté:")
 
     quoi_faire = ("""Que voulez-vous faire? 
         1- Combattre cet adversaire
