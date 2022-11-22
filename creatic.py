@@ -19,13 +19,16 @@ def gange_perdu():
     elif combat_statut == "defaite":
         nombres_de_victoires = 0
 
+
 def augmentation():
-    if nombres_de_victoires > 3:
+    if nombres_de_victoires > 2:
         global minimum
         global maximum
-        minimum +=4
+        minimum +=5
         maximum+=5
-        force_adversaire(minimum,maximum)
+    elif nombres_de_victoires < 2:
+        minimum = 1
+        maximum = 5
 
 
 def combat():
@@ -75,7 +78,7 @@ def jeu():
     boucle_jeu = True
     while boucle_jeu:
         global force_adversaire
-        force_adversaire = random.randint(1, 5)
+        force_adversaire = random.randint(minimum,maximum)
         global score_dé
         score_dé = random.randint(1, 6)
         global numero_adversaire
@@ -99,6 +102,8 @@ def jeu():
             print("Lancé du dé:" + str(score_dé))
             nouveau_niveau_vie()
             gange_perdu()
+            print(minimum)
+            print(maximum)
             print("Dernier combat = " + str(combat_statut) + "\nNiveau de vie = " + str(
                 niveau_vie) + "\nNombre de victoires consécutives =" + str(nombres_de_victoires))
             print()

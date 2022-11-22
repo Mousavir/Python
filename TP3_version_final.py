@@ -106,6 +106,8 @@ def jeu():
             boucle_jeu = False
 
 
+
+
 while autre_partie == "o":
     jeu()
     autre_partie = input("Voulez voulez faire une autre partie (o/n)")
