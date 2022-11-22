@@ -2,9 +2,9 @@ import random
 
 niveau_vie = 20
 numero_combat = 0
-autre_partie = "o"
 nombres_de_victoires = 0
 nombres_de_defaites = 0
+autre_partie = "o"
 
 
 def gange_perdu():
@@ -60,17 +60,6 @@ def statut_partie():
 
 
 def jeu():
-    print("Vous tombez face à face avec un adversaire de difficulté:")
-
-    quoi_faire = ("""Que voulez-vous faire? 
-        1- Combattre cet adversaire
-        2- Contourner cet adversaire et aller ouvrir un autre porte
-        3- Afficher les règles du jeu
-        4- Quitter la partie
-        *Entrer le numero de l'option choisis*""")
-
-    print(quoi_faire)
-
     boucle_jeu = True
     while boucle_jeu:
         global force_adversaire
@@ -78,7 +67,18 @@ def jeu():
         global score_dé
         score_dé = random.randint(1, 6)
         global numero_adversaire
-        numero_adversaire = random.randint(0, 100)
+        numero_adversaire = random.randint(1, 100)
+        print("Vous tombez face à face avec un adversaire de difficulté:" + str(force_adversaire))
+
+        quoi_faire = ("""Que voulez-vous faire? 
+            1- Combattre cet adversaire
+            2- Contourner cet adversaire et aller ouvrir un autre porte
+            3- Afficher les règles du jeu
+            4- Quitter la partie
+            *Entrer le numero de l'option choisis*""")
+
+        print(quoi_faire)
+
         decision = (input("Entrez votre decision:"))
         if decision == "1":
             combat()
@@ -100,7 +100,8 @@ def jeu():
         elif decision == "4":
             print("Merci et aurevoir!")
             boucle_jeu = False
-        if niveau_vie <= 0:
+
+        elif niveau_vie <= 0:
             print("La partie est terminée, vous avez vaincu " + str(nombres_de_victoires) + " monstre(s)")
             boucle_jeu = False
 
