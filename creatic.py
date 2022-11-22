@@ -85,6 +85,8 @@ def jeu():
         score_dé_1 = random.randint(1, 6)
         score_dé_2 = random.randint(1, 6)
         score_dé_final = score_dé_1 + score_dé_2
+        print(score_dé_1)
+        print(score_dé_2)
         print(score_dé_final)
         global numero_adversaire
         numero_adversaire = random.randint(1, 100)
