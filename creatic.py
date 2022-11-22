@@ -3,11 +3,19 @@
 #25 octobre 2022
 import random
 
-
+#variable numero_combat est egale a 0
 numero_combat = 0
+
+#variable nombres_de_victoires est egale a 0
 nombres_de_victoires = 0
+
+#variable nombres_de_defaites est egale a 0
 nombres_de_defaites = 0
+
+#variable autre_partie est egale a la lettre o
 autre_partie = "o"
+
+#variable minimum est egale a 1
 minimum = 1
 maximum = 12
 
