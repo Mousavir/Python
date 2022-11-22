@@ -3,7 +3,7 @@
 #25 octobre 2022
 import random
 
-niveau_vie = 20
+
 numero_combat = 0
 nombres_de_victoires = 0
 nombres_de_defaites = 0
@@ -132,5 +132,7 @@ def jeu():
 
 
 while autre_partie == "o":
+    global niveau_vie
+    niveau_vie = 20
     jeu()
     autre_partie = input("Voulez voulez faire une autre partie (o/n)")
