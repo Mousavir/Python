@@ -3,14 +3,40 @@
 #25 octobre 2022
 import random
 
-
+#variable numero_combat est egale a 0
 numero_combat = 0
+
+#variable nombres_de_victoires est egale a 0
 nombres_de_victoires = 0
+
+#variable nombres_de_defaites est egale a 0
 nombres_de_defaites = 0
+
+#variable autre_partie est egale a la lettre o
 autre_partie = "o"
+
+#variable minimum est egale a 1
 minimum = 1
+
+#variable maximum est egale a 12
 maximum = 12
 
+#fonction nouveau_niveau_vie qui change definit si la partie est victoire ou une defaite et definit le niveau de vie de l'utiliusateur selon si le score du de final de l"utilisateur est plus petit ou egal ou plus grand que la force de l'adversaire
+def nouveau_niveau_vie():
+    global niveau_vie
+    #si score du de final est plus petit ou egal a la force de l'adversaire le variable c
+    if score_dé_final <= force_adversaire:
+        global combat_statut
+        combat_statut = "defaite"
+#
+        niveau_vie -= int(force_adversaire)
+
+    elif score_dé_final > force_adversaire:
+        combat_statut = "victoire"
+
+        niveau_vie += int(force_adversaire)
+
+#fonction gange_perdu qui definit le nombres de victoires pour le nombre de victoires consecutifs
 def gange_perdu():
     global nombres_de_victoires
     global nombres_de_defaites
@@ -41,18 +67,7 @@ def contourner_monstre():
     niveau_vie -= 1
 
 
-def nouveau_niveau_vie():
-    global niveau_vie
-    if score_dé_final <= force_adversaire:
-        global combat_statut
-        combat_statut = "defaite"
-#
-        niveau_vie -= int(force_adversaire)
 
-    elif score_dé_final > force_adversaire:
-        combat_statut = "victoire"
-
-        niveau_vie += int(force_adversaire)
 
 
 def instructions():
