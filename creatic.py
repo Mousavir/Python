@@ -8,7 +8,8 @@ numero_combat = 0
 nombres_de_victoires = 0
 nombres_de_defaites = 0
 autre_partie = "o"
-
+minimum = 1
+maximum = 5
 
 def gange_perdu():
     global nombres_de_victoires
@@ -17,6 +18,14 @@ def gange_perdu():
         nombres_de_victoires += 1
     elif combat_statut == "defaite":
         nombres_de_victoires = 0
+
+def augmentation():
+    if nombres_de_victoires > 3:
+        global minimum
+        global maximum
+        minimum +=4
+        maximum+=5
+        force_adversaire(minimum,maximum)
 
 
 def combat():
@@ -84,6 +93,7 @@ def jeu():
 
         decision = (input("Entrez votre decision:"))
         if decision == "1":
+            augmentation()
             combat()
             statut_partie()
             print("Lancé du dé:" + str(score_dé))

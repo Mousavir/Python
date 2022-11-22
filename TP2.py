@@ -13,7 +13,7 @@ def essais():
 # variable autre_partie est egale a o
 autre_partie = "o"
 
-#fonction jeu() pour choisir les bornes: l'utilisateur choisit s'il veut choisir lui même les bornes du nombre aléatoire (option choisis) ou choisit d"utilier les bornes defaut (option defaut)
+#fonction jeu() pour choisir les bornes: l'utilisateur choisit s'il veut choisir lui même les bornes du nombre aléatoire (option choisis) ou choisit d"util..ier les bornes defaut (option defaut)
 #fonction jeu() pour jouer le jeu: contient le boucle while boucle_jeu: partie ou l'utilisateur entre un nombre en essaie, si son nombre = plus petit ou plus grand que celui en question, affichage à l'écran qui indiquant ceci, sinon si l'essai= nombre, affiche message bravo et le nb d'essai pris
 #fonction jeu() est repete autant de fois selon si l'utilisateur veut jouer un autre jeu dans le boucle while autre_partie = "o".
 def jeu():
