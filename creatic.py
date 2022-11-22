@@ -9,7 +9,7 @@ nombres_de_victoires = 0
 nombres_de_defaites = 0
 autre_partie = "o"
 minimum = 1
-maximum = 5
+maximum = 12
 
 def gange_perdu():
     global nombres_de_victoires
@@ -21,14 +21,14 @@ def gange_perdu():
 
 
 def augmentation():
-    if nombres_de_victoires > 2:
+    if nombres_de_victoires > 3:
         global minimum
         global maximum
         minimum +=5
-        maximum+=5
-    elif nombres_de_victoires < 2:
+        maximum +=5
+    elif nombres_de_victoires < 3:
         minimum = 1
-        maximum = 5
+        maximum = 12
 
 
 def combat():
@@ -43,13 +43,13 @@ def contourner_monstre():
 
 def nouveau_niveau_vie():
     global niveau_vie
-    if score_dé <= force_adversaire:
+    if score_dé_final <= force_adversaire:
         global combat_statut
         combat_statut = "defaite"
-
+#
         niveau_vie -= int(force_adversaire)
 
-    elif score_dé > force_adversaire:
+    elif score_dé_final > force_adversaire:
         combat_statut = "victoire"
 
         niveau_vie += int(force_adversaire)
@@ -79,8 +79,13 @@ def jeu():
     while boucle_jeu:
         global force_adversaire
         force_adversaire = random.randint(minimum,maximum)
-        global score_dé
-        score_dé = random.randint(1, 6)
+        global score_dé_1
+        global score_dé_2
+        global score_dé_final
+        score_dé_1 = random.randint(1, 6)
+        score_dé_2 = random.randint(1, 6)
+        score_dé_final = score_dé_1 + score_dé_2
+        print(score_dé_final)
         global numero_adversaire
         numero_adversaire = random.randint(1, 100)
         print("Vous tombez face à face avec un adversaire de difficulté:" + str(force_adversaire))
@@ -99,7 +104,7 @@ def jeu():
             augmentation()
             combat()
             statut_partie()
-            print("Lancé du dé:" + str(score_dé))
+            print("Lancé du dé:" + str(score_dé_final))
             nouveau_niveau_vie()
             gange_perdu()
             print(minimum)
