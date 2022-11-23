@@ -3,25 +3,12 @@
 #25 octobre 2022
 import random
 
-#variable numero_combat est egale a 0
-numero_combat = 0
-
-#variable nombres_de_victoires est egale a 0
-nombres_de_victoires = 0
-
-#variable nombres_de_defaites est egale a 0
-nombres_de_defaites = 0
-
 #variable autre_partie est egale a la lettre o
 autre_partie = "o"
 
-#variable minimum est egale a 1
-minimum = 1
 
-#variable maximum est egale a 12
-maximum = 12
 
-nombres_de_victoires_consecutifs = nombres_de_victoires
+
 
 #fonction niveau_vie qui determine le statut du combat avec un monstre et change le niveau de vie de l'utilisateur en fonction
 def nouveau_niveau_vie():
@@ -156,11 +143,32 @@ def jeu():
 
 #boucle autre_partie qui se repete tant que cette derniere variable est egale la lettre o
 while autre_partie == "o":
+    # variable numero_combat est egale a 0
+    global numero_combat
+    numero_combat = 0
 
+    # variable minimum est egale a 1
+    global minimum
+    minimum = 1
+
+    # variable maximum est egale a 12
+    global maximum
+    maximum = 12
+
+    # variable nombres_de_victoires est egale a 0
+    global nombres_de_victoires
+    nombres_de_victoires = 0
+
+    # variable nombres_de_defaites est egale a 0
+    global nombres_de_defaites
+    nombres_de_defaites = 0
     # la variable biveau_vie est global
+
     global niveau_vie
     #variable niveau_vie est fixe arbitrairement a 20
     niveau_vie = 20
+
+    nombres_de_victoires_consecutifs = nombres_de_victoires
     #appelle a la fonction jeu et donc a tout son contenu et ses propres references a des fonctions (combat contre mostre avec 2 des et options pour decision et niveau de difficulte qui augment et niveau de vie qui change
     jeu()
     #variable autre_partie est egale au reponse qu'entre l'utilisateur pour s'il veut jouer un autre jeu (o) ou s'il ne veut pas (n)
