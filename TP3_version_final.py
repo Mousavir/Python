@@ -152,7 +152,7 @@ def jeu():
         print(quoi_faire)
 
         # variable decision est egale a valeur entre par l'utilisateur comme decision (un numeor soit 1,2,3 ou 4) (input de l'utilisateur est stocke dans la vairbale decision)
-        decision = (input("Entrez votre decision:"))
+        decision = (input("Entrez votre decision: "))
 
         # si la valeur du varibale decision est de 1, il y a appele a plusieurs fonctions et des valeurs indicants le score du de, et le statut du combat sont affiches a l'ecran
         if decision == "1":
