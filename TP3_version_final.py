@@ -191,34 +191,36 @@ def jeu():
             boucle_jeu = False
 
 
-# boucle autre_partie qui se repete tant que cette derniere variable est egale la lettre o
+#boucle autre_partie qui se repete tant que cette derniere variable est egale la lettre o
+#boucle dans lequel il contient plusieurs variables qui se font mise a jour apres chaque jeu complet
+#bouclequi dans lequel le jeu de combat des monstres ce joue, donc le jeu qui est une fonction et qui contient toutes les parties et differents elements pour jouer et qui permet de jouer au jeu autant de fois que l'utilisateur le veut grace à une vairbale booleane
 while autre_partie == "o":
-    # variable numero_combat est egale a 0
+    # variable numero_combat est egale a 0 et elle est globale
     global numero_combat
     numero_combat = 0
 
-    # variable minimum est egale a 1
+    # variable minimum est egale a 1 et elle est globale
     global minimum
     minimum = 1
 
-    # variable maximum est egale a 12
+    # variable maximum est egale a 12 et elle est globale
     global maximum
     maximum = 12
 
-    # variable nombres_de_victoires est egale a 0
+    # variable nombres_de_victoires est egale a 0 et elle est globale
     global nombres_de_victoires
     nombres_de_victoires = 0
 
-    # variable nombres_de_defaites est egale a 0
+    # variable nombres_de_defaites est egale a 0 et elle est globale
     global nombres_de_defaites
     nombres_de_defaites = 0
-    # la variable biveau_vie est global
 
+    # la variable niveau_vie est global
     global niveau_vie
     # variable niveau_vie est fixe arbitrairement a 20
     niveau_vie = 20
-    global nombre
-    nombre = 0
+    #la varibale nombre_combat_gagne est global et est fixe a 0
+
     global nombre_combat_gange
     nombre_combat_gagne = 0
     # appelle a la fonction jeu et donc a tout son contenu et ses propres references a des fonctions (combat contre mostre avec 2 des et options pour decision et niveau de difficulte qui augment et niveau de vie qui change
