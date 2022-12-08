@@ -8,7 +8,7 @@ class Student(Person):
     def __init__(self):
         super().__init__()
 
-        self.id = 0
+        self.id =  0
 
 audrey = Person()
 audrey.name = 'Audrey'
