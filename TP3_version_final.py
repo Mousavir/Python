@@ -50,7 +50,7 @@ def gange_perdu():
 
 # fonction augmentation qui augmente ou de remmetre à l'arbitraire le minimum et le maximum utilise pour bornes de la force de l'adversaire
 def augmentation():
-    # si le nombre_de_victoires de utilisateur est plus grand que 3, les variable minimum et au maximum deja definit (plus bas) y s'y ajoutent une valeur de +10 a leur valeur deja existante pour que les nombre bornes pour le force d'adversaire aleatoire soit plus grande (adversaire plus fort)
+    # si le nombre_de_victoires de utilisateur est plus grand que 3, les variable minimum et au maximum deja definit (plus bas) deviennent 6 et 12 respectivement pour le force d'adversaire (bornes pour) aleatoire soit plus grande (adversaire plus fort)
     if nombres_de_victoires > 3:
 
         # la variable minimum est global
@@ -58,10 +58,10 @@ def augmentation():
         # la variable minimum est global
         global maximum
 
-        minimum += 10
-        maximum += 10
+        minimum =6
+        maximum =12
 
-    # si le nombre_de_victoires est plus petit que 3, les variables minimummest le maximum restent 1 et 12 respectivement ainsi les nombre bornes pour le force d'adversaire aleatoires est plus petit (adversaire plus faible)
+    # si le nombre_de_victoires est plus petit que 3, les variables minimumm et le maximum restent 1 et 12 respectivement ainsi les nombre bornes pour le force d'adversaire aleatoires est plus petit (adversaire plus faible)
     elif nombres_de_victoires < 3:
         minimum = 1
         maximum = 12
