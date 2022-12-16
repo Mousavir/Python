@@ -7,6 +7,6 @@ class Rectangle:
     #fonction qui permet de calculer l'air du rectangle et d'en retourner la reponse en utilisant valeurs de l'objet crer
     def calcul_air(self):
         return self.largeur * self.longueur
-    #fonction pour afficher les informations sur largeur, longeur et air rectangle
+    #fonction pour afficher les informations sur largeur (qui est egale a sel.largueur), longeur (qui est ega;e a self.longueur) et air rectangle
     def afficher_infos(self):
         print(self.largeur, self.longueur, self.calcul_air())

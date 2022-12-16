@@ -7,5 +7,5 @@ class StringFoo:
     def set_string(self, parametre):
             self.name = parametre
     #fonction qui permet d'impirimer la valeur du variable nom en lettre majuscule
-    def print_set(self):
+    def print_string(self):
         print(self.name.upper())
