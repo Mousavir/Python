@@ -1,5 +1,18 @@
-from random import randint
+import random
 
-nombre =[random.randint(1,6),random.randint
+list_nombre = random.sample(range(1,6),4)
 
-print(nombre)
+sorted_list_nombre = sorted(list_nombre)
+
+print(sorted_list_nombre)
+
+premier_nombre_max = sorted_list_nombre[-1]
+deuxieme_nombre_max = sorted_list_nombre[-2]
+troisieme_nombre_max = sorted_list_nombre[-3]
+
+print(premier_nombre_max, deuxieme_nombre_max, troisieme_nombre_max)
+    def afficher_caracteristiques(self):
+        print(self)
+
+objet=NPC()
+objet.afficher_caracteristiques()
