@@ -1,4 +1,4 @@
-from random import randint
+
 
 class Kobold(NPC):
     def subir_dommages(self):
