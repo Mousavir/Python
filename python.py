@@ -11,8 +11,7 @@ deuxieme_nombre_max = sorted_list_nombre[-2]
 troisieme_nombre_max = sorted_list_nombre[-3]
 
 print(premier_nombre_max, deuxieme_nombre_max, troisieme_nombre_max)
-    def afficher_caracteristiques(self):
-        print(self)
+
 
 objet=NPC()
 objet.afficher_caracteristiques()
