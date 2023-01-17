@@ -5,7 +5,7 @@ def calcul():
     list_nombre = random.sample(range(1, 6), 4)
 
     list_nombre.sort()
-    return (list_nombre[-1], list_nombre[-2], list_nombre[-3])
+    return (list_nombre[3] + list_nombre[2] + list_nombre[1])
 
 
 class NPC:
@@ -29,20 +29,19 @@ class NPC:
 
 class Kobold(NPC):
     def attaquer(self,parametre_1):
-        self.cible_1 = parametre_1
+        return
 
-
-    def subir_dommages(self):
-        self.quantite_dommages_1 = random.randint(1,6)
+    def subir_dommages(self,parametre_2):
+        return
 
 
 class Hero(NPC):
-    def attaquer(self, parametre_2):
-        self.cible_2 = parametre_2
+    def attaquer(self, parametre_3):
+        return
 
 
-    def subir_dommages(self):
-        self.quantite_dommages_2 = random.randint(1,6)
+    def subir_dommages(self,parametre_4):
+        return
 
 
 
@@ -53,7 +52,7 @@ objet.nom= "nom"
 objet.afficher_caracteristiques()
 player=Kobold()
 player.attaquer('character')
-player.subir_dommages()
+player.subir_dommages(8)
 winner = Hero()
 winner.attaquer('evil')
-winner.subir_dommages()
+winner.subir_dommages(4)
