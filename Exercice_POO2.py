@@ -24,25 +24,26 @@ class NPC:
         self.profession = " "
 
     def afficher_caracteristiques(self):
-        print("Caractéristiques du personnage: Force:", self.force,"Agilité:", self.agilite," Constitution:",self.constitution," Intelligence:", self.intelligence, "Sagesse:",self.sagesse, "Charisme:",self.charisme, " Classe d'armure:",self.classe_armure," Nom:",self.nom," Race:",self.race, " Espèce:",self.espece, " Point de vie:",self.point_de_vie," Profession:",self.profession)
+        print("Caractéristiques du personnage: Force:", self.force,
+              "Agilité:", self.agilite," Constitution:",self.constitution," Intelligence:", self.intelligence, "Sagesse:",self.sagesse, "Charisme:",self.charisme, " Classe d'armure:",self.classe_armure," Nom:",self.nom," Race:",self.race, " Espèce:",self.espece, " Point de vie:",self.point_de_vie," Profession:",self.profession)
 
 class Kobold(NPC):
     def attaquer(self,parametre_1):
         self.cible_1 = parametre_1
-        print(self.cible_1)
+
 
     def subir_dommages(self):
         self.quantite_dommages_1 = random.randint(1,6)
-        print(self.quantite_dommages_1)
+
 
 class Hero(NPC):
     def attaquer(self, parametre_2):
         self.cible_2 = parametre_2
-        print(self.cible_2)
+
 
     def subir_dommages(self):
         self.quantite_dommages_2 = random.randint(1,6)
-        print(self.quantite_dommages_2)
+
 
 
 
