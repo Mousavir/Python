@@ -1,21 +1,22 @@
 import random
-repeat = True
-while repeat:
-    def calcul():
-        list_nombre = random.sample(range(1, 6), 4)
-
-        sorted_list_nombre = sorted(list_nombre)
 
 
+def calcul():
+    global list_nombre
+    list_nombre = random.sample(range(1, 6), 4)
 
-        premier_nombre_max = sorted_list_nombre[-1]
-        deuxieme_nombre_max = sorted_list_nombre[-2]
-        troisieme_nombre_max = sorted_list_nombre[-3]
+    list_nombre.sort()
+    print(list_nombre)
+calcul()
+resultat = (list_nombre[-1], list_nombre[-2], list_nombre[-3])
+print(resultat)
 
-        calcul_effectue = (premier_nombre_max, deuxieme_nombre_max, troisieme_nombre_max)
-force = calcul_effectue
-agilite = calcul_effectue
-constitution = calcul_effectue
-intelligence = calcul_effectue
+force = resultat
+calcul()
+agilite = resultat
 
-print(force, agilite,constitution,intelligence)
+print(force,agilite)
+
+
+
+
