@@ -1,3 +1,7 @@
+# Exercice POO2
+# Rozhina Mousavi
+# Janvier 2023
+
 import random
 
 def calcul():
@@ -24,8 +28,7 @@ class NPC:
         self.profession = " "
 
     def afficher_caracteristiques(self):
-        print("Caractéristiques du personnage: Force:", self.force,
-              "Agilité:", self.agilite," Constitution:",self.constitution," Intelligence:", self.intelligence, "Sagesse:",self.sagesse, "Charisme:",self.charisme, " Classe d'armure:",self.classe_armure," Nom:",self.nom," Race:",self.race, " Espèce:",self.espece, " Point de vie:",self.point_de_vie," Profession:",self.profession)
+        print("Caractéristiques du personnage: Force:", self.force, "Agilité:", self.agilite," Constitution:",self.constitution," Intelligence:", self.intelligence, "Sagesse:",self.sagesse, "Charisme:",self.charisme, " Classe d'armure:",self.classe_armure," Nom:",self.nom," Race:",self.race, " Espèce:",self.espece, " Point de vie:",self.point_de_vie," Profession:",self.profession)
 
 class Kobold(NPC):
     def attaquer(self,parametre_1):
@@ -43,16 +46,3 @@ class Hero(NPC):
     def subir_dommages(self,parametre_4):
         return
 
-
-
-
-
-objet=NPC()
-objet.nom= "nom"
-objet.afficher_caracteristiques()
-player=Kobold()
-player.attaquer('character')
-player.subir_dommages(8)
-winner = Hero()
-winner.attaquer('evil')
-winner.subir_dommages(4)
