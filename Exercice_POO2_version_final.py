@@ -6,6 +6,7 @@ import random
 
 def calcul():
     global list_nombre
+
     list_nombre = random.sample(range(1, 6), 4)
 
     list_nombre.sort()
@@ -35,29 +36,31 @@ class Kobold(NPC):
         return
 
     def subir_dommages(self,parametre_2):
-        return
+        self.point_de_vie -= parametre_2
 
 
 class Hero(NPC):
-    def attaquer(self):
+    def attaquer(self, cible = Kobold):
         global attaque
         attaque = random.randint(1,20)
+        cible.subir_dommages(5)
 
+    dommages_attaque_critique = random.randint(1, 8)
+    dommages_attaque = random.randint(1, 6)
+    if attaque == 20:
+        self.force - dommages_attaque_critique
 
-    def subir_dommages(self):
-        dommages_attaque_critique = random.randint(1,8)
-        dommages_attaque = random.randint(1,6)
-        if attaque == 20:
-            self.force - dommages_attaque_critique
+    elif attaque == 1:
+        return
 
-        elif attaque == 1:
+    elif attaque in range(2, 19):
+        if attaque >= self.classe_armure:
+            self.force - dommages_attaque
+        else:
             return
 
-        elif attaque in range(2,19):
-            if attaque >= self.classe_armure:
-                self.force - dommages_attaque
-            else:
-                return
+    def subir_dommages(self):
+
 
 
 objet=NPC()
