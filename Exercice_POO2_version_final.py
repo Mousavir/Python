@@ -39,10 +39,33 @@ class Kobold(NPC):
 
 
 class Hero(NPC):
-    def attaquer(self, parametre_3):
-        return
+    def attaquer(self):
+        global attaque
+        attaque = random.randint(1,20)
 
 
-    def subir_dommages(self,parametre_4):
-        return
+    def subir_dommages(self):
+        dommages_attaque_critique = random.randint(1,8)
+        dommages_attaque = random.randint(1,6)
+        if attaque == 20:
+            self.force - dommages_attaque_critique
 
+        elif attaque == 1:
+            return
+
+        elif attaque in range(2,19):
+            if attaque >= self.classe_armure:
+                self.force - dommages_attaque
+            else:
+                return
+
+
+objet=NPC()
+objet.nom= "nom"
+objet.afficher_caracteristiques()
+player=Kobold()
+player.attaquer('character')
+player.subir_dommages(6)
+winner = Hero()
+winner.attaquer()
+winner.subir_dommages()
