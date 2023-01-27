@@ -37,12 +37,25 @@ class Kobold(NPC):
 
     def subir_dommages(self,parametre_2):
         self.point_de_vie -= parametre_2
-        print(self.point_de_vie)
+
 
 
 class Hero(NPC):
-    def attaquer(self,cible):
-       cible.subir_dommages(2)
+    def attaquer(self, cible):
+
+        attaque = random.randint(1,20)
+        print(attaque)
+        if attaque == 20:
+            cible.subir_dommages(random.randint(1,8))
+        elif attaque ==1:
+            cible.subir_dommages(random.randint(0))
+
+        elif attaque in range(2, 19):
+            if attaque >= self.classe_armure(cible):
+                cible.subir_dommages(random.randint(1,6))
+            else:
+                cible.subir_dommages(random.randint(0))
+
 
 
 
@@ -53,7 +66,6 @@ objet.nom= "nom"
 objet.afficher_caracteristiques()
 player=Kobold()
 player.attaquer('character')
-player.subir_dommages(2)
+player.subir_dommages()
 winner = Hero()
 winner.attaquer(Kobold)
-winner.subir_dommages()
