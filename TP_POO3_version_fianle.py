@@ -5,7 +5,7 @@
 import random
 
 
-# fonction calcul qui renvoye la valeur des trois plus hautes valeurs choisis parmi 4 nombres, chacun resultant d'un nombre aléatoire (random) entre 1 et 6 qu'il classe en ordre croissant (sort) pour pouvoir trouver les 3 nb plus grands
+# fonction calcul qui renvoye la valeur des trois plus hautes valeurs choisis parmi 4 nombres, chacun resultant d'un nombre aléatoire qu'il classe en ordre croissant (sort) pour pouvoir trouver les 3 nb plus grands
 def calcul():
     # la variable list nombre est globale
     global list_nombre
@@ -20,7 +20,7 @@ def calcul():
     return (list_nombre[3] + list_nombre[2] + list_nombre[1])
 
 
-# classe NPC (non player character qui contient l'infromation (des variables string et variable calcules avec fonction calcul ou qui valent la valeur d'un nombre au hasard entre 1 et 20 ou 1 et 12) pour afficher toutes les characteristiques
+# classe NPC (non player character qui contient l'infromation pour les variable et pour les afficher ces caracteristiques
 class NPC:
     #fonction qui contient informations sur divers variables (string, nb aleatoire ou d'apres valeur fonction calcul (objet creer)
     def __init__(self):
@@ -97,3 +97,5 @@ class Hero(NPC):
     # fonction subir_dommages qui perd un certain nb de points de vie d'après la valeur associe au paramtre_3 et renvoie la valeur
     def subir_dommages(self, paramtre_3):
         return
+
+
