@@ -95,7 +95,7 @@ class Hero(NPC):
         cible.subir_dommages(nombre_dommage)
 
     # fonction subir_dommages qui perd un certain nb de points de vie d'après la valeur associe au paramtre_3 et renvoie la valeur
-    def subir_dommages(self, paramtre_3):
+    def subir_dommages(self, parametre_3):
         return
 
 
