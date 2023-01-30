@@ -1,4 +1,4 @@
-# Exercice POO3
+# TP POO3
 # Rozhina Mousavi
 # Janvier 2023
 
@@ -97,12 +97,3 @@ class Hero(NPC):
     # fonction subir_dommages qui perd un certain nb de points de vie d'après la valeur associe au paramtre_3 et renvoie la valeur
     def subir_dommages(self, paramtre_3):
         return
-
-
-objet = NPC()
-objet.nom = "nom"
-objet.afficher_caracteristiques()
-monstre = Kobold()
-player = Hero()
-player.attaquer(monstre)
-winner = Hero()
