@@ -14,6 +14,18 @@ def main():
    arcade.run()
 main()
 
+couleur = random.randint()
+
+
+
+
+
+
+
+
+
+
+
 transparency = random.random(0,256)
 transparent = random.random(0,256)
 opacity = random.random(0,256)
