@@ -59,6 +59,7 @@ class MyGame(arcade.Window):
         if button == arcade.MOUSE_BUTTON_LEFT:
 
         if button == arcade.MOUSE_BUTTON_RIGHT:
+            color
 
 
 
