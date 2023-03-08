@@ -60,7 +60,7 @@ class MyGame(arcade.Window):
            #pour chaque cercle dans la liste de cercle
            for cercle in self.liste_cercles:
                #verifier si le x et le y des coordones du point clique avec le souris sont plus petit et plus grand que la surface du cercle (se retrouvent dans le cercle base sur le rayon du cercle et les coordones de son centre
-               if x < cercle.centre_x + cercle.rayon and cercle.centre_x + cercle.rayon < x and y < cercle.centre_y + cercle.rayon and cercle.centre_y + cercle.rayon < y:
+               if x < cercle.centre_x + cercle.rayon and cercle.centre_x - cercle.rayon < x and y < cercle.centre_y + cercle.rayon and cercle.centre_y - cercle.rayon < y:
                     #enlever le cercle en question (cercle clique) de la liste
                     self.liste_cercles.remove(cercle)
 
@@ -68,9 +68,9 @@ class MyGame(arcade.Window):
        elif button == arcade.MOUSE_BUTTON_RIGHT:
            for cercle in self.liste_cercles:
            # verifier si le x et le y des coordones du point clique avec le souris sont plus petit et plus grand que la surface du cercle (se retrouvent dans le cercle base sur le rayon du cercle et les coordones de son centre
-                if x < cercle.centre_x + cercle.rayon and cercle.centre_x + cercle.rayon < x and y < cercle.centre_y + cercle.rayon and cercle.centre_y + cercle.rayon < y:
+                if x < cercle.centre_x + cercle.rayon and cercle.centre_x - cercle.rayon < x and y < cercle.centre_y + cercle.rayon and cercle.centre_y - cercle.rayon < y:
                     #changer la couleur du cercle en question (cercle clique) en rendant son propritete de couleur au hasard
-                        cercle.color = random.choice
+                        cercle.color = random.choice(COLORS)
 
 #fonction main qui fait appel a la classe my_game et ses conetues et met en action aracde
 def main():
