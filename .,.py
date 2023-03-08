@@ -1,103 +1,58 @@
-# Exercice POO2
-# Rozhina Mousavi
-# Janvier 2023
+# GitHub:
+# https://github.com/Rabbid76/PyGameExamplesAndAnswers/blob/master/documentation/pygame/pygame_sprite_and_sprite_mask.md
+#
+# Stack Overflow:
+# https://stackoverflow.com/questions/10990137/pygame-mouse-clicking-detection/64533684#64533684
 
-import random
-
-def calcul():
-    global list_nombre
-
-    list_nombre = random.sample(range(1, 6), 4)
-
-    list_nombre.sort()
-    return (list_nombre[3] + list_nombre[2] + list_nombre[1])
+import pygame
 
 
-class NPC:
-    def __init__(self):
-        self.force = calcul()
-        self.agilite =calcul()
-        self.constitution =calcul()
-        self.intelligence =calcul()
-        self.sagesse = calcul()
-        self.charisme = calcul()
-        self.classe_armure = random.randint(1,12)
-        self.nom = " "
-        self.race = " "
-        self.espece = " "
-        self.point_de_vie = random.randint(1,20)
-        self.profession = " "
+class SpriteObject(pygame.sprite.Sprite):
+    def __init__(self, x, y, color):
+        super().__init__()
+        self.original_image = pygame.Surface((50, 50), pygame.SRCALPHA)
+        pygame.draw.circle(self.original_image, color, (25, 25), 25)
+        self.click_image = pygame.Surface((50, 50), pygame.SRCALPHA)
+        pygame.draw.circle(self.click_image, color, (25, 25), 25)
+        pygame.draw.circle(self.click_image, (255, 255, 255), (25, 25), 25, 4)
+        self.image = self.original_image
+        self.rect = self.image.get_rect(center=(x, y))
+        self.clicked = False
 
-    def afficher_caracteristiques(self):
-        print("Caractéristiques du personnage: Force:", self.force, "Agilité:", self.agilite," Constitution:",self.constitution," Intelligence:", self.intelligence, "Sagesse:",self.sagesse, "Charisme:",self.charisme, " Classe d'armure:",self.classe_armure," Nom:",self.nom," Race:",self.race, " Espèce:",self.espece, " Point de vie:",self.point_de_vie," Profession:",self.profession)
+    def update(self, event_list):
+        for event in event_list:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.rect.collidepoint(event.pos):
+                    self.clicked = not self.clicked
 
-class Kobold(NPC):
-    def attaquer(self,parametre_1):
-        return
-
-    def subir_dommages(self,parametre_2):
-        self.point_de_vie -= parametre_2
+        self.image = self.click_image if self.clicked else self.original_image
 
 
-class Hero(NPC):
-    def attaquer(self, cible):
-        global attaque
-        attaque = random.randint(1,20)
-        cible.subir_dommages(5)
+pygame.init()
+window = pygame.display.set_mode((300, 300))
+clock = pygame.time.Clock()
 
+sprite_object = SpriteObject(*window.get_rect().center, (128, 128, 0))
+group = pygame.sprite.Group([
+    SpriteObject(window.get_width() // 3, window.get_height() // 3, (128, 0, 0)),
+    SpriteObject(window.get_width() * 2 // 3, window.get_height() // 3, (0, 128, 0)),
+    SpriteObject(window.get_width() // 3, window.get_height() * 2 // 3, (0, 0, 128)),
+    SpriteObject(window.get_width() * 2 // 3, window.get_height() * 2 // 3, (128, 128, 0)),])
 
+run = True
+while run:
+    clock.tick(60)
+    event_list = pygame.event.get()
+    for event in event_list:
+        if event.type == pygame.QUIT:
+            run = False
 
-# Exercice POO2
-# Rozhina Mousavi
-# Janvier 2023
+    group.update(event_list)
 
-import random
+    window.fill(0)
+    group.draw(window)
+    pygame.display.flip()
 
-def calcul():
-    global list_nombre
+pygame.quit()
+exit()
 
-    list_nombre = random.sample(range(1, 6), 4)
-
-    list_nombre.sort()
-    return (list_nombre[3] + list_nombre[2] + list_nombre[1])
-
-
-class NPC:
-    def __init__(self):
-        self.force = calcul()
-        self.agilite =calcul()
-        self.constitution =calcul()
-        self.intelligence =calcul()
-        self.sagesse = calcul()
-        self.charisme = calcul()
-        self.classe_armure = random.randint(1,12)
-        self.nom = " "
-        self.race = " "
-        self.espece = " "
-        self.point_de_vie = random.randint(1,20)
-        self.profession = " "
-
-    def afficher_caracteristiques(self):
-        print("Caractéristiques du personnage: Force:", self.force, "Agilité:", self.agilite," Constitution:",self.constitution," Intelligence:", self.intelligence, "Sagesse:",self.sagesse, "Charisme:",self.charisme, " Classe d'armure:",self.classe_armure," Nom:",self.nom," Race:",self.race, " Espèce:",self.espece, " Point de vie:",self.point_de_vie," Profession:",self.profession)
-
-class Kobold(NPC):
-    def attaquer(self,parametre_1):
-        return
-
-    def subir_dommages(self,parametre_2):
-        self.point_de_vie -= parametre_2
-
-
-class Hero(NPC):
-    def attaquer(self, cible):
-        global attaque
-        attaque = random.randint(1,20)
-        if attaque == 20:
-            cible.subir_dommages(random.randint(1,20))
-
-
-        elif attaque in range(2, 19):
-            if attaque >= self.classe_armure(cible):
-                cible.subir_dommages(random.randint(1,6))
-            else:
-                cible.subir_dommages(0)

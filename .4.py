@@ -1,5 +1,6 @@
 import arcade
 
+COULEURS =
 
 class MyGame(arcade.Window):
    def __init__(self, width, height, title):

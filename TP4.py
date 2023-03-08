@@ -1,45 +1,40 @@
 import arcade
 import random
 
-class MyGame(arcade.Window):
-   def __init__(self, width, height, title):
-       # Call the parent class's init function
-       super().__init__(width, height, title)
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 800
 
 
+COULEUR = [arcade.color.GOLDEN_YELLOW, arcade.color.DARK_TURQUOISE, arcade.color.DEEP_PINK, arcade.color.MEDIUM_SPRING_GREEN, arcade.color.MEDIUM_SLATE_BLUE, arcade.color.DARK_ORANGE, arcade.color.SEA_GREEN]
+rayon = random.randint(10, 70)
+center_x = random.randint(0, SCREEN_WIDTH - rayon)
+center_y = random.randint(0, SCREEN_HEIGHT - rayon)
+color = random.choice(COULEUR)
 def main():
+    window = arcade.Window(SCREEN_WIDTH,SCREEN_HEIGHT, "screen dimentions")
 
-   window = MyGame(640, 480, "Drawing Example")
-
-   arcade.run()
 main()
+class MyGame():
+    def setup(self):
 
-couleur = random.randint()
-
-
-
-
-
-
-
-
+        cercle = (rayon, center_x, center_y, color)
+    def on_draw(self):
+        arcade.start_render()
+        for _ in range(20):
+            arcade.draw_circle_filled(cercle)
 
 
 
-transparency = random.random(0,256)
-transparent = random.random(0,256)
-opacity = random.random(0,256)
 
-couleur = (transparency, transparent, opacity)
+def start():
+        my_game = MyGame()
+        my_game.setup()
+        my_game.on_draw()
 
-position = random.random((0,620))
-yposition = random.random(0,460)
-def on_draw(self):
-   arcade.start_render()
+        arcade.run()
+start()
 
-   arcade.draw_circle_filled(position, yposition, (couleur))
 
-on_draw()
 
 
 
