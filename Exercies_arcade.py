@@ -72,7 +72,7 @@ class MyGame(arcade.Window):
                     #changer la couleur du cercle en question (cercle clique) en rendant son propritete de couleur au hasard
                         cercle.color = random.choice
 
-#fonction main qui fait appel a la classe mygame et ses conetues et met en action aracde
+#fonction main qui fait appel a la classe my_game et ses conetues et met en action aracde
 def main():
    my_game = MyGame()
    my_game.setup()
