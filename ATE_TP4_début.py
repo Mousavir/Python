@@ -7,7 +7,7 @@ SCREEN_HEIGHT = 600
 
 COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.GOLDEN_POPPY, arcade.color.GOLDEN_POPPY]
 
-class Balle():
+class Cercle():
 
    def __init__(self,rayon,x,y,color):
        self.rayon = rayon
@@ -39,6 +39,7 @@ class MyGame(arcade.Window):
            centre_x = random.randint(0 + rayon, SCREEN_WIDTH - rayon)
            centre_y = random.randint(0 + rayon, SCREEN_HEIGHT - rayon)
            color = random.choice(COLORS)
+
 
            cercle = Cercle(rayon,centre_x,centre_y,color)
 
