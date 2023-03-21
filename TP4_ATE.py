@@ -4,7 +4,7 @@ import random
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
-COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.FRENCH_ROSE, arcade.color.GOLDEN_POPPY]
+COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.GOLDEN_POPPY, arcade.color.TURQUOISE_BLUE,arcade.color.SPRING_GREEN,arcade.color.RED,arcade.color.LAVENDER_INDIGO]
 
 class Balle():
     def __init__(self, rayon,position_x,position_y, vitesse_deplacement_x, vitesse_deplacement_y, couleur):
@@ -56,8 +56,8 @@ class MyGame(arcade.Window):
 
 
             rayon = random.randint(10, 50)
-            change_x = 3
-            change_y = 3
+            change_x = random.randint(1,10)
+            change_y = random.randint(1,10)
             color = random.choice(COLORS)
             balle = Balle(rayon, x, y, change_x, change_y, color)
             self.liste_balles.append(balle)
