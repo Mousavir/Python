@@ -14,22 +14,24 @@ class Balle():
         self.change_x = vitesse_deplacement_x
         self.change_y = vitesse_deplacement_y
         self.color = couleur
-        cercle = Balle(rayon,centre_x,cercle_y.change_x, change_y, color)
+
     def on_update(self):
-        cercle_centre_x += cercle_change_x
-        cercle_centre_y += cercle_change_y
+        self.centre_x += self.change_x
+        self.centre_y += self.change_y
 
-        if cercle_centre_x < rayon_cercle:
-            pass
-        if cercle_centre_x > SCREEN_WIDTH - rayon_cercle:
-            pass
-        if cercle_centre_y < rayon_cercle:
-            pass
-        if cercle_centre_y > SCREEN_HEIGHT - rayon_cercle:
-            pass
+        if self.centre_x < self.rayon:
+            self.change_x *= -1
 
-        if cercle_x < rayon_cercle:
-            cercle_x *= -1
+        if self.centre_x > SCREEN_WIDTH - self.rayon:
+            self.change_x *= -1
+
+        if self.centre_y < self.rayon:
+            self.change_y *= -1
+
+        if self.centre_y > SCREEN_HEIGHT - self.rayon:
+            self.change_y *= -1
+
+
 
     def draw(self):
         arcade.draw_circle_filled(self.centre_x, self.centre_y, self.rayon, self.color)
@@ -39,41 +41,33 @@ class MyGame(arcade.Window):
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Exercice #1")
         self.liste_balles= []
-
-
-
-    def setup(self):
-
-        for _ in range(20):
-            rayon = random.randint(10, 50)
-            center_x = random.randint(0 + rayon, SCREEN_WIDTH - rayon)
-            center_y = random.randint(0 + rayon, SCREEN_HEIGHT - rayon)
-            color = random.choice(COLORS)
-            balle= Balle(rayon, center_x, center_y, color)
-            self.liste_balles.append(balle)
-
-
     def on_draw(self):
         arcade.start_render()
-        for cercle in self.liste_cercles:
-            cercle.draw()
- def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
+        for balle in self.liste_balles:
+            balle.draw()
 
-       if button == arcade.MOUSE_BUTTON_LEFT:
+    def on_update(self, delta_time: float):
+        for balle in self.liste_balles:
+            balle.on_update()
 
-           for balle in self.liste_balles:
+    def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
+
+        if button == arcade.MOUSE_BUTTON_LEFT:
 
 
+            rayon = random.randint(10, 50)
+            change_x = 3
+            change_y = 3
+            color = random.choice(COLORS)
+            balle = Balle(rayon, x, y, change_x, change_y, color)
+            self.liste_balles.append(balle)
 
-
-       elif button == arcade.MOUSE_BUTTON_RIGHT:
-           for cercle in self.liste_cercles:
 
 
 
 def main():
     my_game = MyGame()
-    my_game.setup()
+
 
     arcade.run()
 
