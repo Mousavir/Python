@@ -4,8 +4,7 @@ import random
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
-COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,
-arcade.color.FRENCH_ROSE, arcade.color.GOLDEN_POPPY]
+COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.FRENCH_ROSE, arcade.color.GOLDEN_POPPY]
 
 class Balle():
     def __init__(self, rayon,position_x,position_y, vitesse_deplacement_x, vitesse_deplacement_y, couleur):
@@ -20,7 +19,18 @@ class Balle():
         cercle_centre_x += cercle_change_x
         cercle_centre_y += cercle_change_y
 
-        if cercle_x
+        if cercle_centre_x < rayon_cercle:
+            pass
+        if cercle_centre_x > SCREEN_WIDTH - rayon_cercle:
+            pass
+        if cercle_centre_y < rayon_cercle:
+            pass
+        if cercle_centre_y > SCREEN_HEIGHT - rayon_cercle:
+            pass
+
+        if cercle_x < rayon_cercle:
+            cercle_x *= -1
+
     def draw(self):
         arcade.draw_circle_filled(self.centre_x, self.centre_y, self.rayon, self.color)
 
@@ -28,7 +38,7 @@ class Balle():
 class MyGame(arcade.Window):
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Exercice #1")
-        self.liste_cercles = []
+        self.liste_balles= []
 
 
 
@@ -39,13 +49,26 @@ class MyGame(arcade.Window):
             center_x = random.randint(0 + rayon, SCREEN_WIDTH - rayon)
             center_y = random.randint(0 + rayon, SCREEN_HEIGHT - rayon)
             color = random.choice(COLORS)
-            cercle= Cercle(rayon, center_x, center_y, color)
-            self.liste_cercles.append(cercle)
+            balle= Balle(rayon, center_x, center_y, color)
+            self.liste_balles.append(balle)
+
 
     def on_draw(self):
         arcade.start_render()
         for cercle in self.liste_cercles:
             cercle.draw()
+ def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
+
+       if button == arcade.MOUSE_BUTTON_LEFT:
+
+           for balle in self.liste_balles:
+
+
+
+
+       elif button == arcade.MOUSE_BUTTON_RIGHT:
+           for cercle in self.liste_cercles:
+
 
 
 def main():
