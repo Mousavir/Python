@@ -7,13 +7,20 @@ SCREEN_HEIGHT = 600
 COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,
 arcade.color.FRENCH_ROSE, arcade.color.GOLDEN_POPPY]
 
-class Cercle():
-    def __init__(self, r,x,y,c):
-        self.rayon = r
-        self.centre_x = x
-        self.centre_y = y
-        self.color = (c)
+class Balle():
+    def __init__(self, rayon,position_x,position_y, vitesse_deplacement_x, vitesse_deplacement_y, couleur):
+        self.rayon = rayon
+        self.centre_x = position_x
+        self.centre_y = position_y
+        self.change_x = vitesse_deplacement_x
+        self.change_y = vitesse_deplacement_y
+        self.color = couleur
+        cercle = Balle(rayon,centre_x,cercle_y.change_x, change_y, color)
+    def on_update(self):
+        cercle_centre_x += cercle_change_x
+        cercle_centre_y += cercle_change_y
 
+        if cercle_x
     def draw(self):
         arcade.draw_circle_filled(self.centre_x, self.centre_y, self.rayon, self.color)
 
