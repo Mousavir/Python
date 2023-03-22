@@ -69,7 +69,7 @@ class MyGame(arcade.Window):
             self.liste_rectangles.append(rectangle)
 
 
-
+#commit
 
 def main():
     MyGame()
