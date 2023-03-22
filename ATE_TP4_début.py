@@ -58,7 +58,7 @@ class MyGame(arcade.Window):
         if button == arcade.MOUSE_BUTTON_LEFT:
 
 
-
+#comit
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
             width = 5
