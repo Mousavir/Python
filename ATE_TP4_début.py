@@ -48,7 +48,7 @@ class MyGame(arcade.Window):
         arcade.start_render()
         for rectangle in self.liste_rectangles:
             rectangle.draw()
-
+#commit
     def on_update(self, delta_time: float):
         for rectangle in self.liste_rectangles:
             rectangle.on_update()
