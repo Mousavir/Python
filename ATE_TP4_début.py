@@ -1,63 +1,79 @@
 import arcade
 import random
 
-
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
-COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.GOLDEN_POPPY, arcade.color.GOLDEN_POPPY]
+COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.GOLDEN_POPPY, arcade.color.TURQUOISE_BLUE,arcade.color.SPRING_GREEN,arcade.color.RED,arcade.color.LAVENDER_INDIGO]
 
-class Cercle():
+class Rectangle():
+    def __init__(self,position_x,position_y, vitesse_deplacement_x, vitesse_deplacement_y, largeur, hauteur, couleur, nombre_float):
 
-   def __init__(self,rayon,x,y,color):
-       self.rayon = rayon
-       self.centre_x = x
-       self.change_x = deplacement_x
-       self.change_y = deplacement_y
-       self.centre_y = y
-       self.color = color
+        self.centre_x = position_x
+        self.centre_y = position_y
+        self.change_x = vitesse_deplacement_x
+        self.change_y = vitesse_deplacement_y
+        self.width = largeur
+        self.height= hauteur
+        self.color = couleur
+        self.angle = nombre_float
+
+    def on_update(self):
+        self.centre_x += self.change_x
+        self.centre_y += self.change_y
+
+        if self.centre_x < self.width:
+            self.change_x *= -1
+
+        if self.centre_x > SCREEN_WIDTH - self.width:
+            self.change_x *= -1
+
+        if self.centre_y < self.height:
+            self.change_y *= -1
+
+        if self.centre_y > SCREEN_HEIGHT - self.height:
+            self.change_y *= -1
 
 
-   def draw(self):
-       arcade.draw_circle_filled(self.centre_x, self.centre_y, self.rayon, self.color)
 
+    def draw(self):
+        arcade.draw_rectangle_filled(self.centre_x, self.centre_y, self.color,self.angle, self.height,self.width)
 
 
 class MyGame(arcade.Window):
+    def __init__(self):
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Exercice #1")
+        self.liste_rectangles= []
+    def on_draw(self):
+        arcade.start_render()
+        for rectangle in self.liste_rectangles:
+            rectangle.draw()
 
-   def __init__(self):
+    def on_update(self, delta_time: float):
+        for rectangle in self.liste_rectangles:
+            rectangle.on_update()
 
-       super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Exercice #1")
+    def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
 
-       self.liste_cercles = []
-
-
-   def setup(self):
-
-       for _ in range(20):
-           rayon = random.randint(10, 50)
-           centre_x = random.randint(0 + rayon, SCREEN_WIDTH - rayon)
-           centre_y = random.randint(0 + rayon, SCREEN_HEIGHT - rayon)
-           color = random.choice(COLORS)
-
-
-           cercle = Cercle(rayon,centre_x,centre_y,color)
-
-           self.liste_cercles.append(cercle)
+        if button == arcade.MOUSE_BUTTON_LEFT:
 
 
-   def on_draw(self):
 
-       arcade.start_render()
+            change_x = random.randint(1,10)
+            change_y = random.randint(1,10)
+            width = 5
+            height = 9
+            angle = 90.0
+            color = arcade.color.BLUE
+            rectangle = Rectangle(x, y, change_x, change_y,width, height, angle, color)
+            self.liste_rectangles.append(rectangle)
 
-       for cercle in self.liste_cercles:
-           cercle.draw()
+
 
 
 def main():
-   my_game = MyGame()
-   my_game.setup()
-   arcade.run()
+    MyGame()
+    arcade.run()
 
 
 main()

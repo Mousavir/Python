@@ -1,71 +1,79 @@
-# Exercice POO2
-# Rozhina Mousavi
-# Janvier 2023
-
+import arcade
 import random
 
-def calcul():
-    global list_nombre
 
-    list_nombre = random.sample(range(1, 6), 4)
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
 
-    list_nombre.sort()
-    return (list_nombre[3] + list_nombre[2] + list_nombre[1])
+COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.GOLDEN_POPPY, arcade.color.TURQUOISE_BLUE,arcade.color.SPRING_GREEN,arcade.color.RED,arcade.color.LAVENDER_INDIGO]
+
+class Cercle():
+
+   def __init__(self,rayon,x,y,color):
+       self.rayon = rayon
+       self.centre_x = x
+       self.centre_y = y
+       self.color = color
 
 
-class NPC:
-    def __init__(self):
-        self.force = calcul()
-        self.agilite =calcul()
-        self.constitution =calcul()
-        self.intelligence =calcul()
-        self.sagesse = calcul()
-        self.charisme = calcul()
-        self.classe_armure = random.randint(1,12)
-        self.nom = " "
-        self.race = " "
-        self.espece = " "
-        self.point_de_vie = random.randint(1,20)
-        self.profession = " "
-
-    def afficher_caracteristiques(self):
-        print("Caractéristiques du personnage: Force:", self.force, "Agilité:", self.agilite," Constitution:",self.constitution," Intelligence:", self.intelligence, "Sagesse:",self.sagesse, "Charisme:",self.charisme, " Classe d'armure:",self.classe_armure," Nom:",self.nom," Race:",self.race, " Espèce:",self.espece, " Point de vie:",self.point_de_vie," Profession:",self.profession)
-
-class Kobold(NPC):
-    def attaquer(self,parametre_1):
-        return
-
-    def subir_dommages(self,parametre_2):
-        self.point_de_vie -= parametre_2
+   def draw(self):
+       arcade.draw_circle_filled(self.centre_x, self.centre_y, self.rayon, self.color)
 
 
 
-class Hero(NPC):
-    def attaquer(self, cible):
+class MyGame(arcade.Window):
 
-        attaque = random.randint(1,20)
-        print(attaque)
-        if attaque == 20:
-            cible.subir_dommages(random.randint(1,8))
-        elif attaque ==1:
-            cible.subir_dommages(random.randint(0))
+   def __init__(self):
 
-        elif attaque in range(2, 19):
-            if attaque >= self.classe_armure(cible):
-                cible.subir_dommages(random.randint(1,6))
-            else:
-                cible.subir_dommages(random.randint(0))
+       super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Exercice #1")
+
+       self.liste_cercles = []
 
 
+   def setup(self):
+
+       for _ in range(20):
+           rayon = random.randint(10, 50)
+           centre_x = random.randint(0 + rayon, SCREEN_WIDTH - rayon)
+           centre_y = random.randint(0 + rayon, SCREEN_HEIGHT - rayon)
+           color = random.choice(COLORS)
+
+           cercle = Cercle(rayon,centre_x,centre_y,color)
+
+           self.liste_cercles.append(cercle)
 
 
+   def on_draw(self):
+
+       arcade.start_render()
+
+       for cercle in self.liste_cercles:
+           cercle.draw()
 
 
-objet=NPC()
-objet.nom= "nom"
-objet.afficher_caracteristiques()
-player=Kobold()
-player.attaquer('character')
-player.subir_dommages()
-winner = Hero()
-winner.attaquer(Kobold)
+   def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
+
+       if button == arcade.MOUSE_BUTTON_LEFT:
+
+           for cercle in self.liste_cercles:
+
+               if x < cercle.centre_x + cercle.rayon and cercle.centre_x - cercle.rayon < x and y < cercle.centre_y + cercle.rayon and cercle.centre_y - cercle.rayon < y:
+
+                    self.liste_cercles.remove(cercle)
+
+
+       elif button == arcade.MOUSE_BUTTON_RIGHT:
+           for cercle in self.liste_cercles:
+
+                if x < cercle.centre_x + cercle.rayon and cercle.centre_x - cercle.rayon < x and y < cercle.centre_y + cercle.rayon and cercle.centre_y - cercle.rayon < y:
+
+                        cercle.color = random.choice(COLORS)
+
+
+def main():
+   my_game = MyGame()
+   my_game.setup()
+   arcade.run()
+
+
+main()
