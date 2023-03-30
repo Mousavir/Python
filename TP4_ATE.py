@@ -55,7 +55,7 @@ class MyGame(arcade.Window):
         if button == arcade.MOUSE_BUTTON_LEFT:
 
 
-            rayon = random.randint(10, 50)
+            rayon = random.randint(15, 50)
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
             color = random.choice(COLORS)
