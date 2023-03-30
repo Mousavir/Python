@@ -107,7 +107,7 @@ class MyGame(arcade.Window):
 
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
-            width = 60
+            width = 50
             height =70
             angle = 90.00
             color = random.choice(COLORS)
