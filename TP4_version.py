@@ -80,13 +80,17 @@ class Rectangle():
     def draw(self):
         arcade.draw_rectangle_filled(self.centre_x, self.centre_y, self.width, self.height, self.color,self.angle)
 
-#definir l'objet en le
+#definir les objets balle et rectangle et le jeu, qui permet d'afficher (dessiner) ces objets sur l'ecran selon le bouton clique
 class MyGame(arcade.Window):
     def __init__(self):
+        #creer la fenetre arcade d'apres valeurs hauter et largeur deja definit
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "TP4")
+        #crer la liste de balles et de rectangle qui sont tout les deux vides
         self.liste_balles= []
         self.liste_rectangles= []
-#methode on_draw qui permet de mettre en action les fonction dessiner l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans la liste respectives
+
+
+#methode on_draw qui permet de mettre en action fonction dessiner l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans leurs liste respectives
     def on_draw(self):
         arcade.start_render()
         for balle in self.liste_balles:
@@ -94,6 +98,7 @@ class MyGame(arcade.Window):
         for rectangle in self.liste_rectangles:
             rectangle.draw()
 
+#methode on_update qui permet de mettre en action fonction changer position l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans leurs liste respectives
     def on_update(self, delta_time: float):
         for balle in self.liste_balles:
             balle.on_update()
