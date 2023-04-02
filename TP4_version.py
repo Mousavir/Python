@@ -86,7 +86,7 @@ class MyGame(arcade.Window):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "TP4")
         self.liste_balles= []
         self.liste_rectangles= []
-
+#methode on_draw qui permet de mettre en action les fonction dessiner l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans la liste respectives
     def on_draw(self):
         arcade.start_render()
         for balle in self.liste_balles:
@@ -108,36 +108,41 @@ class MyGame(arcade.Window):
         #condition if le button clique est le boutton gauche
         if button == arcade.MOUSE_BUTTON_LEFT:
 
-#atrribut rayon,change_x et change_y sont egale a des nb hasard entre un minimum et maxium donnée et celle color est egale a couleur (valeur) hasard dans la liste de couleurs (definir valeurs)
+            #definir les valeurs des attributs de l'objet balle
             rayon = random.randint(15, 50)
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
             color = random.choice(COLORS)
-#variable balle est egale a l'objet Balle qui a les valeurs atributs definit ci-haut
+
+            #variable balle est egale a l'objet Balle qui a les valeurs atributs definit ci-haut
             balle = Balle(rayon, x, y, change_x, change_y, color)
-#ajouter un objet balle a la liste de balles
+
+            #ajouter un objet balle a la liste de balles
             self.liste_balles.append(balle)
 
         # condition if le button clique est le boutton droit
         if button == arcade.MOUSE_BUTTON_RIGHT:
-# atrribut change_x et change_y,width et height sont egale a des nb hasard entre un minimum et maxium donnée, atribut angle est egale a un nb float (90.00)et celle color est egale a couleur (valeur) hasard dans la liste de couleurs (definir valeurs)
+
+            #definir les valeurs des attributs de l'objet balle
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
             width = random.randint(50,80)
             height =random.randint(50,80)
             angle = 90.00
             color = random.choice(COLORS)
-#variable rectangle est egale a l'objet Rectangle qui a les valeurs atributs definit ci-haut
+
+            #variable rectangle est egale a l'objet Rectangle qui a les valeurs atributs definit ci-haut
             rectangle = Rectangle(x, y, change_x, change_y,width, height, color, angle)
-#ajouter un objet rectangle a la liste de rectangle
+
+            #ajouter un objet rectangle a la liste de rectangle
             self.liste_rectangles.append(rectangle)
 
 
 
-
+#methode main qui fait appel au class MyGame ci_haut et tout son contenu et au fonction arcade.run pour faire fonctionner le jeu
 def main():
     MyGame()
     arcade.run()
 
-
+#appel au methode main
 main()
