@@ -99,29 +99,37 @@ class MyGame(arcade.Window):
             balle.on_update()
         for rectangle in self.liste_rectangles:
             rectangle.on_update()
+
+
+
 #methode: pour permetre d'afficher une balle a l'ecran l'endroit du clic boutton gauche et d'afficher un rectangle a l'ecran a l'endroit du clic boutton droit
     def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
-        #condition if le button clicke est le boutton gauche
+
+        #condition if le button clique est le boutton gauche
         if button == arcade.MOUSE_BUTTON_LEFT:
-        #atrribut rayon,change_x et change_y sont egale a des nombre hasard entre un minimum et maxium donnée (definir valeurs)
+
+#atrribut rayon,change_x et change_y sont egale a des nb hasard entre un minimum et maxium donnée et celle color est egale a couleur (valeur) hasard dans la liste de couleurs (definir valeurs)
             rayon = random.randint(15, 50)
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
-        #
             color = random.choice(COLORS)
+#variable balle est egale a l'objet Balle qui a les valeurs atributs definit ci-haut
             balle = Balle(rayon, x, y, change_x, change_y, color)
+#ajouter un objet balle a la liste de balles
             self.liste_balles.append(balle)
 
-
+        # condition if le button clique est le boutton droit
         if button == arcade.MOUSE_BUTTON_RIGHT:
-
+# atrribut change_x et change_y,width et height sont egale a des nb hasard entre un minimum et maxium donnée, atribut angle est egale a un nb float (90.00)et celle color est egale a couleur (valeur) hasard dans la liste de couleurs (definir valeurs)
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
             width = random.randint(50,80)
             height =random.randint(50,80)
             angle = 90.00
             color = random.choice(COLORS)
+#variable rectangle est egale a l'objet Rectangle qui a les valeurs atributs definit ci-haut
             rectangle = Rectangle(x, y, change_x, change_y,width, height, color, angle)
+#ajouter un objet rectangle a la liste de rectangle
             self.liste_rectangles.append(rectangle)
 
 
