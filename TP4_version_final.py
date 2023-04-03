@@ -114,7 +114,7 @@ class MyGame(arcade.Window):
         if button == arcade.MOUSE_BUTTON_LEFT:
 
             #definir les valeurs des attributs de l'objet balle
-            rayon = random.randint(15, 50)
+            rayon = random.randint(10, 30)
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
             color = random.choice(COLORS)
@@ -131,8 +131,8 @@ class MyGame(arcade.Window):
             #definir les valeurs des attributs de l'objet balle
             change_x = random.randint(1,10)
             change_y = random.randint(1,10)
-            width = random.randint(50,80)
-            height =random.randint(50,80)
+            width = random.randint(30,50)
+            height =random.randint(30,50)
             angle = 90.00
             color = random.choice(COLORS)
 
