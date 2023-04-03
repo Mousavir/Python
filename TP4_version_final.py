@@ -11,7 +11,7 @@ COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,arcade.color.GOLDEN_POPP
 #créer l'objet Balle:methodes pour definir les parametre de l'objet, permetre changer de position sur la fenetre (bouger en restant dans le cadre), et de dessiner l'objet balle d'après les parametres
 class Balle():
 
-#methode intit: les atributs propriétés du cercle (ex:le position actuel (x,y) balle, le position/vitessse par lequel il se deplace(x,y)) sont egale a des parametres
+    #methode intit: les atributs propriétés du cercle (ex:le position actuel (x,y) balle, le position/vitessse par lequel il se deplace(x,y)) sont egale a des parametres
     def __init__(self, rayon,position_x,position_y, vitesse_deplacement_x, vitesse_deplacement_y, couleur):
         self.rayon = rayon
         self.centre_x = position_x
@@ -20,7 +20,7 @@ class Balle():
         self.change_y = vitesse_deplacement_y
         self.color = couleur
 
-#methode on_update definit deplacement balle(coordone actuel + la valeur par lequel ils se deplace) et permet balle de ne pas sortir du cadre en utilisant position x,y actuelle
+    #methode on_update definit deplacement balle(coordone actuel + la valeur par lequel ils se deplace) et permet balle de ne pas sortir du cadre en utilisant position x,y actuelle
     def on_update(self):
         self.centre_x += self.change_x
         self.centre_y += self.change_y
@@ -38,7 +38,7 @@ class Balle():
             self.change_y *= -1
 
 
-#methode dessiner balle sur la fenetre d'après fonction et les atributs propriétés balle
+    #methode dessiner balle sur la fenetre d'après fonction et les atributs propriétés balle
     def draw(self):
         arcade.draw_circle_filled(self.centre_x, self.centre_y, self.rayon, self.color)
 
@@ -46,7 +46,7 @@ class Balle():
 #créer l'objet Rectangle:methodes pour definir les parametre de l'objet, permetre changer de position sur la fenetre (bouger en restant dans le cadre), et de dessiner l'objet rectangle d'après les parametres
 class Rectangle():
 
-# methode intit: les atributs propriétés du rectangle (ex:le position actuel (x,y) rectangle, le position/vitessse par lequel il se deplace(x,y)) sont egale a des parametres
+    # methode intit: les atributs propriétés du rectangle (ex:le position actuel (x,y) rectangle, le position/vitessse par lequel il se deplace(x,y)) sont egale a des parametres
     def __init__(self,position_x,position_y, vitesse_deplacement_x, vitesse_deplacement_y, largeur, hauteur, couleur, nombre_float):
 
         self.centre_x = position_x
@@ -58,7 +58,7 @@ class Rectangle():
         self.color = couleur
         self.angle = nombre_float
 
-#methode on_update definit deplacement rectangle(coordone actuel + la valeur par lequel ils se deplace) et permet rectagnle de ne pas sortir du cadre en utilisant position x,y actuelle
+    #methode on_update definit deplacement rectangle(coordone actuel + la valeur par lequel ils se deplace) et permet rectagnle de ne pas sortir du cadre en utilisant position x,y actuelle
     def on_update(self):
         self.centre_x += self.change_x
         self.centre_y += self.change_y
@@ -76,7 +76,7 @@ class Rectangle():
             self.change_y *= -1
 
 
-#methode dessiner balle sur la fenetre d'après fonction et les atributs propriétés balle
+    #methode dessiner balle sur la fenetre d'après fonction et les atributs propriétés balle
     def draw(self):
         arcade.draw_rectangle_filled(self.centre_x, self.centre_y, self.width, self.height, self.color,self.angle)
 
@@ -90,7 +90,7 @@ class MyGame(arcade.Window):
         self.liste_rectangles= []
 
 
-#methode on_draw qui permet de mettre en action fonction dessiner l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans leurs liste respectives
+    #methode on_draw qui permet de mettre en action fonction dessiner l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans leurs liste respectives
     def on_draw(self):
         arcade.start_render()
         for balle in self.liste_balles:
@@ -98,7 +98,7 @@ class MyGame(arcade.Window):
         for rectangle in self.liste_rectangles:
             rectangle.draw()
 
-#methode on_update qui permet de mettre en action fonction changer position l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans leurs liste respectives
+    #methode on_update qui permet de mettre en action fonction changer position l'objet balle et rectangle selon un loop (pour chaque balle et rectangle (objet) dans leurs liste respectives
     def on_update(self, delta_time: float):
         for balle in self.liste_balles:
             balle.on_update()
@@ -107,7 +107,7 @@ class MyGame(arcade.Window):
 
 
 
-#methode: pour permetre d'afficher une balle a l'ecran l'endroit du clic boutton gauche et d'afficher un rectangle a l'ecran a l'endroit du clic boutton droit
+    #methode: pour permetre d'afficher une balle a l'ecran l'endroit du clic boutton gauche et d'afficher un rectangle a l'ecran a l'endroit du clic boutton droit
     def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
 
         #condition if le button clique est le boutton gauche
