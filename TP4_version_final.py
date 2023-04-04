@@ -63,16 +63,16 @@ class Rectangle():
         self.centre_x += self.change_x
         self.centre_y += self.change_y
         #valider et assurer que la balle ne sort pas de l'ecran
-        if self.centre_x < self.width:
+        if self.centre_x < self.width/2:
             self.change_x *= -1
 
-        if self.centre_x > SCREEN_WIDTH - self.width:
+        if self.centre_x > SCREEN_WIDTH - self.width/2:
             self.change_x *= -1
 
-        if self.centre_y < self.height:
+        if self.centre_y < self.height/2:
             self.change_y *= -1
 
-        if self.centre_y > SCREEN_HEIGHT - self.height:
+        if self.centre_y > SCREEN_HEIGHT - self.height/2:
             self.change_y *= -1
 
 
@@ -134,7 +134,7 @@ class MyGame(arcade.Window):
             change_y = random.randint(1,10)
             width = 50
             height = 30
-            angle = 90.00
+            angle = 0.00
             color = random.choice(COLORS)
 
             #associer variable rectangle a l`objet Rectangle
