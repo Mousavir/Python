@@ -39,4 +39,3 @@ def __init__(self, attack_type):
    self.set_texture(self.current_texture)
 
 #attack code
-
